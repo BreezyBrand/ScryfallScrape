@@ -5,7 +5,7 @@ import json
 #debug options
 debug = False
 sample = False
-skip = 15211
+skip = 0
 
 # Define connection parameters
 server = r'(localdb)\MSSQLLocalDB' # Replace with your server name
@@ -328,46 +328,126 @@ class formatted_card:
         except:
             self.printed_name = ''        
         
-class priced_card():
+class legal_card():
     def __init__(self,args):
         try:
-            reformatPrice = str.replace(args,"'",'"')
-            reformatPrice = str.replace(reformatPrice,"None",'"None"')            
-            cardprices = json.loads(reformatPrice)
+            reformatLegal = str.replace(args,"'",'"')            
+            cardLegal = json.loads(reformatLegal)
             try:
-                self.usd =  float(cardprices["usd"])
+                self.CardId = cardLegal["CardId"]
             except:
-                self.usd = -1
+                self.CardId = "N/A"
+            
+            try:
+                self.standard = cardLegal['standard']
+            except:
+                self.standard = "Not Legal"
 
             try:
-                self.usd_foil = float(cardprices["usd_foil"])
+                self.future = cardLegal['future']
             except:
-                self.usd_foil = -1
-
+                self.future = "Not Legal"            
+            
             try:
-                self.usd_etched = float(cardprices["usd_etched"])
+                self.historic = cardLegal['historic']
             except:
-                self.usd_etched = -1
-
+                self.historic = "Not Legal"            
+            
             try:
-                self.eur = float(cardprices["eur"])
+                self.timeless = cardLegal['timeless']
             except:
-                self.eur = -1
-
+                self.timeless = "Not Legal"
+            
             try:
-                self.eur_foil = float(cardprices["eur_foil"])
+                self.gladiator = cardLegal['gladiator']
             except:
-                self.eur_foil = -1
-
+                self.gladiator = "Not Legal"            
+            
             try:
-                self.eur_etched = float(cardprices["eur_etched"])
+                self.pioneer = cardLegal['pioneer']
             except:
-                self.eur_etched = -1
-
+                self.pioneer = "Not Legal"
+                        
             try:
-                self.tix = float(cardprices["tix"])
+                self.explorer = cardLegal['explorer']
             except:
-                self.tix = -1
+                self.explorer = "Not Legal"
+                        
+            try:
+                self.modern = cardLegal['modern']
+            except:
+                self.modern = "Not Legal"
+                        
+            try:
+                self.legacy = cardLegal['legacy']
+            except:
+                self.legacy = "Not Legal"
+                        
+            try:
+                self.pauper = cardLegal['pauper']
+            except:
+                self.pauper = "Not Legal"
+                        
+            try:
+                self.vintage = cardLegal['vintage']
+            except:
+                self.vintage = "Not Legal"
+                        
+            try:
+                self.penny = cardLegal['penny']
+            except:
+                self.penny = "Not Legal"
+                        
+            try:
+                self.commander = cardLegal['commander']
+            except:
+                self.commander = "Not Legal"
+                        
+            try:
+                self.oathbreaker = cardLegal['oathbreaker']
+            except:
+                self.oathbreaker = "Not Legal"
+                        
+            try:
+                self.standardbrawl = cardLegal['standardbrawl']
+            except:
+                self.standardbrawl = "Not Legal"
+                        
+            try:
+                self.brawl = cardLegal['brawl']
+            except:
+                self.brawl = "Not Legal"
+                        
+            try:
+                self.alchemy = cardLegal['alchemy']
+            except:
+                self.alchemy = "Not Legal"
+                        
+            try:
+                self.paupercommander = cardLegal['paupercommander']
+            except:
+                self.paupercommander = "Not Legal"
+                        
+            try:
+                self.duel = cardLegal['duel']
+            except:
+                self.duel = "Not Legal"
+                        
+            try:
+                self.oldschool = cardLegal['oldschool']
+            except:
+                self.oldschool = "Not Legal"
+                        
+            try:
+                self.premodern = cardLegal['premodern']
+            except:
+                self.premodern = "Not Legal"
+                        
+            try:
+                self.predh = cardLegal['predh']
+            except:
+                self.predh = "Not Legal"
+
         except Exception as e:
             if(debug):
                 print(f"Error: {e}")
@@ -385,11 +465,7 @@ if username and password:
 # Connect to the database
 try:
     conn = pyodbc.connect(connection_string)
-    cursor = conn.cursor()
-    clear_price_query = "DELETE FROM PriceHistory WHERE Age='Old'"
-    cursor.execute(clear_price_query)
-    shift_price_query = "UPDATE PriceHistory SET Age='Old'"
-    cursor.execute(shift_price_query)
+    cursor = conn.cursor()    
     print("Connection successful!")    
 except Exception as e:
     print(f"Error: {e}")
@@ -404,143 +480,50 @@ def processCard(card):
     
     return processed_card
 
-def getPricing(prices):
+def getLegality(legal):
     try:
-        query_card = priced_card(prices)
+        query_card = legal_card(legal)
         return query_card
     except:
         print("Could not get card prices")
     
 def postUpdate():
-    refreshQuery = "INSERT INTO UpdateLog(Update_Date,Update_Table) VALUES (GETDATE(),'Cards')"
-    cursor.execute(refreshQuery)
-    conn.commit()
-    refreshQuery = "INSERT INTO UpdateLog(Update_Date,Update_Table) VALUES (GETDATE(),'Pricing')"
+    refreshQuery = "INSERT INTO UpdateLog(Update_Date,Update_Table) VALUES (GETDATE(),'Legalities')"
     cursor.execute(refreshQuery)
     conn.commit()
     print("Card roster update logged...")
 
 def saveCardAttempt(card):
-    try:
-        #Check if the record exists
-        query_check = "SELECT COUNT(*) FROM Cards WHERE id = ?;"
+    try:        
+        cardp = getLegality(card.legalities)
+        query_check = "SELECT COUNT(*) FROM Legalities WHERE CardId = ?;"
         cursor.execute(query_check, (card.id))
-        exists = cursor.fetchone()[0]
+        exists = cursor.fetchone()[0]        
+        if(exists):
+            legalQuery = """UPDATE Legalities SET [CardId]=?,[standard]=?,[future]=?,[historic]=?,[timeless]=?,[gladiator]=?,[pioneer]=?,[explorer]=?,[modern]=?,[legacy]=?,[pauper]=?,[vintage]=?,[penny]=?,[commander]=?,[oathbreaker]=?,[standardbrawl]=?,[brawl]=?,[alchemy]=?,[paupercommander]=?,[duel]=?,[oldschool]=?,[premodern]=?,[predh]=?"""
+            legalData = (cardp.standard,cardp.future,cardp.historic,cardp.timeless,cardp.gladiator,cardp.pioneer,cardp.explorer,cardp.modern,cardp.legacy,cardp.pauper,
+                            cardp.vintage,cardp.penny,cardp.commander,cardp.oathbreaker,cardp.standardbrawl,cardp.brawl,cardp.alchemy,cardp.paupercommander,cardp.duel,
+                            cardp.oldschool,cardp.premodern,cardp.predh,card.id)
+        else:                        
+            legalQuery = """INSERT INTO Legalities ([CardId],[standard],[future],[historic],[timeless],[gladiator],[pioneer],[explorer],[modern],[legacy],[pauper],[vintage],[penny],[commander],[oathbreaker],[standardbrawl],[brawl],[alchemy],[paupercommander],[duel],[oldschool],[premodern],[predh])
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+            legalData = (card.id,cardp.standard,cardp.future,cardp.historic,cardp.timeless,cardp.gladiator,cardp.pioneer,cardp.explorer,cardp.modern,cardp.legacy,cardp.pauper,
+                            cardp.vintage,cardp.penny,cardp.commander,cardp.oathbreaker,cardp.standardbrawl,cardp.brawl,cardp.alchemy,cardp.paupercommander,cardp.duel,
+                            cardp.oldschool,cardp.premodern,cardp.predh)
         
-        data = (card.object,card.oracle_id,card.multiverse_ids,card.mtgo_id,card.mtgo_foil_id,card.tcgplayer_id,card.cardmarket_id,card.name,card.lang,card.released_at,card.uri,card.scryfall_uri,card.layout,card.highres_image,card.image_status,card.image_uris,card.mana_cost,card.cmc,card.type_line,card.oracle_text,card.power,card.toughness,card.colors,card.color_identity,card.keywords,card.legalities,card.games,card.reserved,card.foil,card.nonfoil,card.finishes,card.oversized,card.promo,card.reprint,card.variation,card.set_id,card.set,card.set_name,card.set_type,card.set_uri,card.set_search_uri,card.scryfall_set_uri,card.rulings_uri,card.prints_search_uri,card.collector_number,card.digital,card.rarity,card.flavor_text,card.card_back_id,card.artist,card.artist_ids,card.illustration_id,card.border_color,card.frame,card.full_art,card.textless,card.booster,card.story_spotlight,card.edhrec_rank,card.penny_rank,card.prices,card.related_uris,card.purchase_uris,card.all_parts,card.promo_types,card.arena_id,card.security_stamp,card.card_faces,card.preview,card.produced_mana,card.watermark,card.frame_effects,card.loyalty,card.printed_name,card.id)
-
-        if exists:
-            if(debug):
-                print("Record exists. Updating...")            
-            method = "updated"
-            #Set Update Query
-            update_query = """
-            UPDATE Cards SET                
-                [object]=?,
-                [oracle_id]=?,
-                [multiverse_ids]=?,
-                [mtgo_id]=?,
-                [mtgo_foil_id]=?,
-                [tcgplayer_id]=?,
-                [cardmarket_id]=?,
-                [name]=?,
-                [lang]=?,
-                [released_at]=?,
-                [uri]=?,
-                [scryfall_uri]=?,
-                [layout]=?,
-                [highres_image]=?,
-                [image_status]=?,
-                [image_uris]=?,
-                [mana_cost]=?,
-                [cmc]=?,
-                [type_line]=?,
-                [oracle_text]=?,
-                [power]=?,
-                [toughness]=?,
-                [colors]=?,
-                [color_identity]=?,
-                [keywords]=?,
-                [legalities]=?,
-                [games]=?,
-                [reserved]=?,
-                [foil]=?,
-                [nonfoil]=?,
-                [finishes]=?,
-                [oversized]=?,
-                [promo]=?,
-                [reprint]=?,
-                [variation]=?,
-                [set_id]=?,
-                [set]=?,
-                [set_name]=?,
-                [set_type]=?,
-                [set_uri]=?,
-                [set_search_uri]=?,
-                [scryfall_set_uri]=?,
-                [rulings_uri]=?,
-                [prints_search_uri]=?,
-                [collector_number]=?,
-                [digital]=?,
-                [rarity]=?,
-                [flavor_text]=?,
-                [card_back_id]=?,
-                [artist]=?,
-                [artist_ids]=?,
-                [illustration_id]=?,
-                [border_color]=?,
-                [frame]=?,
-                [full_art]=?,
-                [textless]=?,
-                [booster]=?,
-                [story_spotlight]=?,
-                [edhrec_rank]=?,
-                [penny_rank]=?,
-                [prices]=?,
-                [related_uris]=?,
-                [purchase_uris]=?,
-                [all_parts]=?,
-                [promo_types]=?,
-                [arena_id]=?,
-                [security_stamp]=?,
-                [card_faces]=?,
-                [preview]=?,
-                [produced_mana]=?,
-                [watermark]=?,
-                [frame_effects]=?,
-                [loyalty]=?,
-                [printed_name]=?
-            WHERE [id]=?
-            """
-            cursor.execute(update_query, data)
-        else:
-            if(debug):
-                print("No record exists. Creating...")            
-            method = "inserted"
-            #Set Insert Query
-            insert_query = """
-            INSERT INTO Cards ([object],[oracle_id],[multiverse_ids],[mtgo_id],[mtgo_foil_id],[tcgplayer_id],[cardmarket_id],[name],[lang],[released_at],[uri],[scryfall_uri],[layout],[highres_image],[image_status],[image_uris],[mana_cost],[cmc],[type_line],[oracle_text],[power],[toughness],[colors],[color_identity],[keywords],[legalities],[games],[reserved],[foil],[nonfoil],[finishes],[oversized],[promo],[reprint],[variation],[set_id],[set],[set_name],[set_type],[set_uri],[set_search_uri],[scryfall_set_uri],[rulings_uri],[prints_search_uri],[collector_number],[digital],[rarity],[flavor_text],[card_back_id],[artist],[artist_ids],[illustration_id],[border_color],[frame],[full_art],[textless],[booster],[story_spotlight],[edhrec_rank],[penny_rank],[prices],[related_uris],[purchase_uris],[all_parts],[promo_types],[arena_id],[security_stamp],[card_faces],[preview],[produced_mana],[watermark],[frame_effects],[loyalty],[printed_name],[id]) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
-            """
-            # Execute the insert query
-            cursor.execute(insert_query, data)
-        
-        cardp = getPricing(card.prices)                
-        pricingQuery = """INSERT INTO PriceHistory ([CardId],[Age],[usd],[usd_foil],[usd_etched],[eur],[eur_foil],[eur_etched],[tix],[Update_Date]) VALUES (?,?,?,?,?,?,?,?,?,GETDATE())"""        
-        pricingData = (card.id,'New',cardp.usd,cardp.usd_foil,cardp.usd_etched,cardp.eur,cardp.eur_foil,cardp.eur_etched,cardp.tix)
-        cursor.execute(pricingQuery, pricingData)
+        cursor.execute(legalQuery, legalData)
 
         # Commit the changes
         conn.commit()
         if(debug):
-            print("Data "+method+" successfully!")
+            print("Pricing updates completed successfully!")
 
     except Exception as e:
         print(f"Ln 530 Error: {e}")
         
 with open('cards.txt','r',encoding="utf8") as file2:    
     for line in file2:        
-        if(count%100 == 0):
+        if(count%1000 == 0):
             print(count)
         try:
             if(line != "[" and line != "]" and count > skip):
