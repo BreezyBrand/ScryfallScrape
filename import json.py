@@ -6,7 +6,7 @@ worksheet = workbook.add_worksheet()
 
 count=0
 row=1
-skip = 15211
+skip = 0
 
 def tryWrite(col,val):
     if val.startswith("https://"):
@@ -186,7 +186,6 @@ def getKeyCol(keyId):
     if keyId=="printed_name": 
         return 74
 
-
 def initializeSheet():
     worksheet.write(0,0,"object")
     worksheet.write(0,1,"id")
@@ -263,7 +262,6 @@ def initializeSheet():
     worksheet.write(0,72,"frame_effects")
     worksheet.write(0,73,"loyalty")
     worksheet.write(0,74,"printed_name")
-
 
 with open('cards copy.json','r') as file:
     data = json.load(file)

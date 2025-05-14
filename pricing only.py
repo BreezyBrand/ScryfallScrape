@@ -412,119 +412,13 @@ def getPricing(prices):
         print("Could not get card prices")
     
 def postUpdate():
-    refreshQuery = "INSERT INTO UpdateLog(Update_Date,Update_Table) VALUES (GETDATE(),'Cards')"
-    cursor.execute(refreshQuery)
-    conn.commit()
     refreshQuery = "INSERT INTO UpdateLog(Update_Date,Update_Table) VALUES (GETDATE(),'Pricing')"
     cursor.execute(refreshQuery)
     conn.commit()
     print("Card roster update logged...")
 
 def saveCardAttempt(card):
-    try:
-        #Check if the record exists
-        query_check = "SELECT COUNT(*) FROM Cards WHERE id = ?;"
-        cursor.execute(query_check, (card.id))
-        exists = cursor.fetchone()[0]
-        
-        data = (card.object,card.oracle_id,card.multiverse_ids,card.mtgo_id,card.mtgo_foil_id,card.tcgplayer_id,card.cardmarket_id,card.name,card.lang,card.released_at,card.uri,card.scryfall_uri,card.layout,card.highres_image,card.image_status,card.image_uris,card.mana_cost,card.cmc,card.type_line,card.oracle_text,card.power,card.toughness,card.colors,card.color_identity,card.keywords,card.legalities,card.games,card.reserved,card.foil,card.nonfoil,card.finishes,card.oversized,card.promo,card.reprint,card.variation,card.set_id,card.set,card.set_name,card.set_type,card.set_uri,card.set_search_uri,card.scryfall_set_uri,card.rulings_uri,card.prints_search_uri,card.collector_number,card.digital,card.rarity,card.flavor_text,card.card_back_id,card.artist,card.artist_ids,card.illustration_id,card.border_color,card.frame,card.full_art,card.textless,card.booster,card.story_spotlight,card.edhrec_rank,card.penny_rank,card.prices,card.related_uris,card.purchase_uris,card.all_parts,card.promo_types,card.arena_id,card.security_stamp,card.card_faces,card.preview,card.produced_mana,card.watermark,card.frame_effects,card.loyalty,card.printed_name,card.id)
-
-        if exists:
-            if(debug):
-                print("Record exists. Updating...")            
-            method = "updated"
-            #Set Update Query
-            update_query = """
-            UPDATE Cards SET                
-                [object]=?,
-                [oracle_id]=?,
-                [multiverse_ids]=?,
-                [mtgo_id]=?,
-                [mtgo_foil_id]=?,
-                [tcgplayer_id]=?,
-                [cardmarket_id]=?,
-                [name]=?,
-                [lang]=?,
-                [released_at]=?,
-                [uri]=?,
-                [scryfall_uri]=?,
-                [layout]=?,
-                [highres_image]=?,
-                [image_status]=?,
-                [image_uris]=?,
-                [mana_cost]=?,
-                [cmc]=?,
-                [type_line]=?,
-                [oracle_text]=?,
-                [power]=?,
-                [toughness]=?,
-                [colors]=?,
-                [color_identity]=?,
-                [keywords]=?,
-                [legalities]=?,
-                [games]=?,
-                [reserved]=?,
-                [foil]=?,
-                [nonfoil]=?,
-                [finishes]=?,
-                [oversized]=?,
-                [promo]=?,
-                [reprint]=?,
-                [variation]=?,
-                [set_id]=?,
-                [set]=?,
-                [set_name]=?,
-                [set_type]=?,
-                [set_uri]=?,
-                [set_search_uri]=?,
-                [scryfall_set_uri]=?,
-                [rulings_uri]=?,
-                [prints_search_uri]=?,
-                [collector_number]=?,
-                [digital]=?,
-                [rarity]=?,
-                [flavor_text]=?,
-                [card_back_id]=?,
-                [artist]=?,
-                [artist_ids]=?,
-                [illustration_id]=?,
-                [border_color]=?,
-                [frame]=?,
-                [full_art]=?,
-                [textless]=?,
-                [booster]=?,
-                [story_spotlight]=?,
-                [edhrec_rank]=?,
-                [penny_rank]=?,
-                [prices]=?,
-                [related_uris]=?,
-                [purchase_uris]=?,
-                [all_parts]=?,
-                [promo_types]=?,
-                [arena_id]=?,
-                [security_stamp]=?,
-                [card_faces]=?,
-                [preview]=?,
-                [produced_mana]=?,
-                [watermark]=?,
-                [frame_effects]=?,
-                [loyalty]=?,
-                [printed_name]=?
-            WHERE [id]=?
-            """
-            cursor.execute(update_query, data)
-        else:
-            if(debug):
-                print("No record exists. Creating...")            
-            method = "inserted"
-            #Set Insert Query
-            insert_query = """
-            INSERT INTO Cards ([object],[oracle_id],[multiverse_ids],[mtgo_id],[mtgo_foil_id],[tcgplayer_id],[cardmarket_id],[name],[lang],[released_at],[uri],[scryfall_uri],[layout],[highres_image],[image_status],[image_uris],[mana_cost],[cmc],[type_line],[oracle_text],[power],[toughness],[colors],[color_identity],[keywords],[legalities],[games],[reserved],[foil],[nonfoil],[finishes],[oversized],[promo],[reprint],[variation],[set_id],[set],[set_name],[set_type],[set_uri],[set_search_uri],[scryfall_set_uri],[rulings_uri],[prints_search_uri],[collector_number],[digital],[rarity],[flavor_text],[card_back_id],[artist],[artist_ids],[illustration_id],[border_color],[frame],[full_art],[textless],[booster],[story_spotlight],[edhrec_rank],[penny_rank],[prices],[related_uris],[purchase_uris],[all_parts],[promo_types],[arena_id],[security_stamp],[card_faces],[preview],[produced_mana],[watermark],[frame_effects],[loyalty],[printed_name],[id]) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
-            """
-            # Execute the insert query
-            cursor.execute(insert_query, data)
-        
+    try:        
         cardp = getPricing(card.prices)                
         pricingQuery = """INSERT INTO PriceHistory ([CardId],[Age],[usd],[usd_foil],[usd_etched],[eur],[eur_foil],[eur_etched],[tix],[Update_Date]) VALUES (?,?,?,?,?,?,?,?,?,GETDATE())"""        
         pricingData = (card.id,'New',cardp.usd,cardp.usd_foil,cardp.usd_etched,cardp.eur,cardp.eur_foil,cardp.eur_etched,cardp.tix)
