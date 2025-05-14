@@ -7,37 +7,6 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Legalities](
-	[CardId] [varchar](250) NOT NULL,
-	[standard] [varchar](50) NOT NULL,
-	[future] [varchar](50) NOT NULL,
-	[historic] [varchar](50) NOT NULL,
-	[timeless] [varchar](50) NOT NULL,
-	[gladiator] [varchar](50) NOT NULL,
-	[pioneer] [varchar](50) NOT NULL,
-	[explorer] [varchar](50) NOT NULL,
-	[modern] [varchar](50) NOT NULL,
-	[legacy] [varchar](50) NOT NULL,
-	[pauper] [varchar](50) NOT NULL,
-	[vintage] [varchar](50) NOT NULL,
-	[penny] [varchar](50) NOT NULL,
-	[commander] [varchar](50) NOT NULL,
-	[oathbreaker] [varchar](50) NOT NULL,
-	[standardbrawl] [varchar](50) NOT NULL,
-	[brawl] [varchar](50) NOT NULL,
-	[alchemy] [varchar](50) NOT NULL,
-	[paupercommander] [varchar](50) NOT NULL,
-	[duel] [varchar](50) NOT NULL,
-	[oldschool] [varchar](50) NOT NULL,
-	[premodern] [varchar](50) NOT NULL,
-	[predh] [varchar](50) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[CardId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
 DELETE FROM Legalities
 
 INSERT INTO Legalities ([CardId],[standard],[future],[historic],[timeless],[gladiator],[pioneer],[explorer],[modern],[legacy],[pauper],[vintage],[penny],[commander],[oathbreaker],[standardbrawl],[brawl],[alchemy],[paupercommander],[duel],[oldschool],[premodern],[predh])
