@@ -168,6 +168,27 @@ CREATE TABLE [dbo].[DeckCards](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 
+CREATE TABLE [dbo].[PriceHistory](
+	[CardId] [varchar](250) NOT NULL,
+	[Age] [varchar](3) NOT NULL,
+	[usd] [decimal](18, 2) NULL,
+	[usd_foil] [decimal](18, 2) NULL,
+	[usd_etched] [decimal](18, 2) NULL,
+	[eur] [decimal](18, 2) NULL,
+	[eur_foil] [decimal](18, 2) NULL,
+	[eur_etched] [decimal](18, 2) NULL,
+	[tix] [decimal](18, 2) NULL,
+	[Update_Date] [datetime2](7) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Age] ASC,
+	[CardId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
 CREATE USER [cardLoader] FOR LOGIN [cardLoader] WITH DEFAULT_SCHEMA=[dbo]
 GO
 
