@@ -1,0 +1,106 @@
+CREATE DATABASE CardCatalog;
+GO
+
+USE [CardCatalog]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Cards](
+	[id] [varchar](250) NOT NULL,
+	[object] [varchar](max) NULL,
+	[oracle_id] [varchar](max) NULL,
+	[multiverse_ids] [varchar](max) NULL,
+	[mtgo_id] [varchar](max) NULL,
+	[mtgo_foil_id] [varchar](max) NULL,
+	[tcgplayer_id] [varchar](max) NULL,
+	[cardmarket_id] [varchar](max) NULL,
+	[name] [varchar](max) NULL,
+	[lang] [varchar](max) NULL,
+	[released_at] [varchar](max) NULL,
+	[uri] [varchar](max) NULL,
+	[scryfall_uri] [varchar](max) NULL,
+	[layout] [varchar](max) NULL,
+	[highres_image] [varchar](max) NULL,
+	[image_status] [varchar](max) NULL,
+	[image_uris] [varchar](max) NULL,
+	[mana_cost] [varchar](max) NULL,
+	[cmc] [varchar](max) NULL,
+	[type_line] [varchar](max) NULL,
+	[oracle_text] [varchar](max) NULL,
+	[power] [varchar](max) NULL,
+	[toughness] [varchar](max) NULL,
+	[colors] [varchar](max) NULL,
+	[color_identity] [varchar](max) NULL,
+	[keywords] [varchar](max) NULL,
+	[legalities] [varchar](max) NULL,
+	[games] [varchar](max) NULL,
+	[reserved] [varchar](max) NULL,
+	[foil] [varchar](max) NULL,
+	[nonfoil] [varchar](max) NULL,
+	[finishes] [varchar](max) NULL,
+	[oversized] [varchar](max) NULL,
+	[promo] [varchar](max) NULL,
+	[reprint] [varchar](max) NULL,
+	[variation] [varchar](max) NULL,
+	[set_id] [varchar](max) NULL,
+	[set] [varchar](max) NULL,
+	[set_name] [varchar](max) NULL,
+	[set_type] [varchar](max) NULL,
+	[set_uri] [varchar](max) NULL,
+	[set_search_uri] [varchar](max) NULL,
+	[scryfall_set_uri] [varchar](max) NULL,
+	[rulings_uri] [varchar](max) NULL,
+	[prints_search_uri] [varchar](max) NULL,
+	[collector_number] [varchar](max) NULL,
+	[digital] [varchar](max) NULL,
+	[rarity] [varchar](max) NULL,
+	[flavor_text] [varchar](max) NULL,
+	[card_back_id] [varchar](max) NULL,
+	[artist] [varchar](max) NULL,
+	[artist_ids] [varchar](max) NULL,
+	[illustration_id] [varchar](max) NULL,
+	[border_color] [varchar](max) NULL,
+	[frame] [varchar](max) NULL,
+	[full_art] [varchar](max) NULL,
+	[textless] [varchar](max) NULL,
+	[booster] [varchar](max) NULL,
+	[story_spotlight] [varchar](max) NULL,
+	[edhrec_rank] [varchar](max) NULL,
+	[penny_rank] [varchar](max) NULL,
+	[prices] [varchar](max) NULL,
+	[related_uris] [varchar](max) NULL,
+	[purchase_uris] [varchar](max) NULL,
+	[all_parts] [varchar](max) NULL,
+	[promo_types] [varchar](max) NULL,
+	[arena_id] [varchar](max) NULL,
+	[security_stamp] [varchar](max) NULL,
+	[card_faces] [varchar](max) NULL,
+	[preview] [varchar](max) NULL,
+	[produced_mana] [varchar](max) NULL,
+	[watermark] [varchar](max) NULL,
+	[frame_effects] [varchar](max) NULL,
+	[loyalty] [varchar](max) NULL,
+	[printed_name] [varchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[UpdateLog](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Update_Date] [datetime2](7) NULL,
+	[Update_Table] [nvarchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
