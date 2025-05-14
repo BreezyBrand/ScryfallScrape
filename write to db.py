@@ -6,7 +6,7 @@ import json
 debug = False
 
 # Define connection parameters
-server = r'(localdb)\MSSQLLocalDB'
+server = r'(localdb)\MSSQLLocalDB' # Replace with your server name
 database = 'CardCatalog'  # Replace with your database name
 username = 'cardLoader'  # Use your username if required, else you can skip this
 password = 'cardLoader'  # Use your password if required, else you can skip this
