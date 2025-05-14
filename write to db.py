@@ -538,10 +538,6 @@ def saveCardAttempt(card):
     except Exception as e:
         print(f"Ln 530 Error: {e}")
         
-
-with open('cards copy.json','r') as file:
-    data = json.load(file)
-
 with open('cards.txt','r',encoding="utf8") as file2:    
     for line in file2:        
         if(count%100 == 0):

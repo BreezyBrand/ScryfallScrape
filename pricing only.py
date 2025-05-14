@@ -5,7 +5,7 @@ import json
 #debug options
 debug = False
 sample = False
-skip = 15211
+skip = 0
 
 # Define connection parameters
 server = r'(localdb)\MSSQLLocalDB' # Replace with your server name
@@ -427,18 +427,14 @@ def saveCardAttempt(card):
         # Commit the changes
         conn.commit()
         if(debug):
-            print("Data "+method+" successfully!")
+            print("Pricing updates completed successfully!")
 
     except Exception as e:
         print(f"Ln 530 Error: {e}")
         
-
-with open('cards copy.json','r') as file:
-    data = json.load(file)
-
 with open('cards.txt','r',encoding="utf8") as file2:    
     for line in file2:        
-        if(count%100 == 0):
+        if(count%1000 == 0):
             print(count)
         try:
             if(line != "[" and line != "]" and count > skip):
