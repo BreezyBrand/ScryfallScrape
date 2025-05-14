@@ -4,6 +4,7 @@ import json
 
 #debug options
 debug = False
+sample = False
 
 # Define connection parameters
 server = r'(localdb)\MSSQLLocalDB' # Replace with your server name
@@ -326,6 +327,50 @@ class formatted_card:
         except:
             self.printed_name = ''        
         
+class priced_card():
+    def __init__(self,args):
+        try:
+            reformatPrice = str.replace(args,"'",'"')
+            reformatPrice = str.replace(reformatPrice,"None",'"None"')            
+            cardprices = json.loads(reformatPrice)
+            try:
+                self.usd =  float(cardprices["usd"])
+            except:
+                self.usd = -1
+
+            try:
+                self.usd_foil = float(cardprices["usd_foil"])
+            except:
+                self.usd_foil = -1
+
+            try:
+                self.usd_etched = float(cardprices["usd_etched"])
+            except:
+                self.usd_etched = -1
+
+            try:
+                self.eur = float(cardprices["eur"])
+            except:
+                self.eur = -1
+
+            try:
+                self.eur_foil = float(cardprices["eur_foil"])
+            except:
+                self.eur_foil = -1
+
+            try:
+                self.eur_etched = float(cardprices["eur_etched"])
+            except:
+                self.eur_etched = -1
+
+            try:
+                self.tix = float(cardprices["tix"])
+            except:
+                self.tix = -1
+        except Exception as e:
+            if(debug):
+                print(f"Error: {e}")
+        pass
 
 # Create the connection string
 connection_string = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};'
@@ -340,7 +385,11 @@ if username and password:
 try:
     conn = pyodbc.connect(connection_string)
     cursor = conn.cursor()
-    print("Connection successful!")
+    clear_price_query = "DELETE FROM PriceHistory WHERE Age='Old'"
+    cursor.execute(clear_price_query)
+    shift_price_query = "UPDATE PriceHistory SET Age='Old'"
+    cursor.execute(shift_price_query)
+    print("Connection successful!")    
 except Exception as e:
     print(f"Error: {e}")
 
@@ -354,6 +403,13 @@ def processCard(card):
     
     return processed_card
 
+def getPricing(prices):
+    try:
+        query_card = priced_card(prices)
+        return query_card
+    except:
+        print("Could not get card prices")
+    
 def postUpdate():
     refreshQuery = "INSERT INTO UpdateLog(Update_Date,Update_Table) VALUES (GETDATE(),'Cards')"
     cursor.execute(refreshQuery)
@@ -464,6 +520,11 @@ def saveCardAttempt(card):
             """
             # Execute the insert query
             cursor.execute(insert_query, data)
+        
+        cardp = getPricing(card.prices)                
+        pricingQuery = """INSERT INTO PriceHistory ([CardId],[Age],[usd],[usd_foil],[usd_etched],[eur],[eur_foil],[eur_etched],[tix],[Update_Date]) VALUES (?,?,?,?,?,?,?,?,?,GETDATE())"""        
+        pricingData = (card.id,'New',cardp.usd,cardp.usd_foil,cardp.usd_etched,cardp.eur,cardp.eur_foil,cardp.eur_etched,cardp.tix)
+        cursor.execute(pricingQuery, pricingData)
 
         # Commit the changes
         conn.commit()
@@ -471,7 +532,7 @@ def saveCardAttempt(card):
             print("Data "+method+" successfully!")
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Ln 530 Error: {e}")
         
 
 with open('cards copy.json','r') as file:
@@ -479,21 +540,24 @@ with open('cards copy.json','r') as file:
 
 with open('cards.txt','r',encoding="utf8") as file2:    
     for line in file2:        
-        if(count%10000 == 0):
+        if(count%100 == 0):
             print(count)
         try:
             if(line != "[" and line != "]"):
                 all_but_one = str(line[:-2])
                 card = json.loads(all_but_one)
-                processed_card = processCard(card)
+                processed_card = processCard(card)                
                 saveCardAttempt(processed_card)                
                 row = row+1
         except:
             print("An error occured parsing line "+str(count))            
         count = count + 1
-        #if(count>100):
+        if(sample and count>100):
+            postUpdate()
+            cursor.close()
+            conn.close()
+            quit()
     postUpdate()
     cursor.close()
     conn.close()
     quit()
-
