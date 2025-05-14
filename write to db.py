@@ -5,6 +5,7 @@ import json
 #debug options
 debug = False
 sample = False
+skip = 15211
 
 # Define connection parameters
 server = r'(localdb)\MSSQLLocalDB' # Replace with your server name
@@ -543,7 +544,7 @@ with open('cards.txt','r',encoding="utf8") as file2:
         if(count%100 == 0):
             print(count)
         try:
-            if(line != "[" and line != "]"):
+            if(line != "[" and line != "]" and count > skip):
                 all_but_one = str(line[:-2])
                 card = json.loads(all_but_one)
                 processed_card = processCard(card)                

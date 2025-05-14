@@ -6,6 +6,7 @@ worksheet = workbook.add_worksheet()
 
 count=0
 row=1
+skip = 15211
 
 def tryWrite(col,val):
     if val.startswith("https://"):
@@ -273,7 +274,7 @@ with open('cards.txt','r',encoding="utf8") as file2:
         if(count%10000 == 0):
             print(count)
         try:
-            if(line != "[" and line != "]"):
+            if(line != "[" and line != "]" and count>skip):
                 all_but_one = str(line[:-2])
                 card = json.loads(all_but_one)
                 saveCardAttempt(card)                
