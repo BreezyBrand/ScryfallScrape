@@ -5,7 +5,7 @@ import json
 #debug options
 debug = False
 sample = False
-skip = 15211
+skip = 96315
 
 # Define connection parameters
 server = r'(localdb)\MSSQLLocalDB' # Replace with your server name
