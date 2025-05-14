@@ -149,6 +149,24 @@ CREATE TABLE [dbo].[Inventory](
 ) ON [PRIMARY]
 GO
 
+CREATE TABLE [dbo].[Decks](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](200) NOT NULL,
+	[Description] [nvarchar](200) NULL,
+	[Colors] [varchar](5) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[DeckCards](
+	[DeckId] [int] NOT NULL,
+	[Set] [varchar](max) NOT NULL,
+	[Collector_number] [varchar](max) NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
 
 CREATE USER [cardLoader] FOR LOGIN [cardLoader] WITH DEFAULT_SCHEMA=[dbo]
 GO

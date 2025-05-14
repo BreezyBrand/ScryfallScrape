@@ -96,6 +96,19 @@ VALUES
 	('BLB','162',1,'N'),
 	('MH3','236',1,'N'),
 	('CHK','199',1,'N')
+
+
+INSERT INTO Decks ([Name],[Description]) VALUES ('Life finds a way...','Dino Deck Clone')
+
+INSERT INTO 
+	DeckCards ([DeckId],[Set],[Collector_number])
+SELECT
+	1,
+	inv.[Set],
+	inv.[Collector Number]
+FROM
+	Inventory inv
+
 --SAMPLE DATA, REMOVE/REPLACE WITH YOUR INVENTORY
 
 --SELECT 
