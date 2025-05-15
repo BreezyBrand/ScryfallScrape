@@ -457,7 +457,6 @@ class legal_card():
 connection_string = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};'
 count=0
 row=1
-
 # If authentication is required, add uid and pwd
 if username and password:
     connection_string += f'UID={username};PWD={password};'
@@ -499,14 +498,14 @@ def saveCardAttempt(card):
         query_check = "SELECT COUNT(*) FROM Legalities WHERE CardId = ?;"
         cursor.execute(query_check, (card.id))
         exists = cursor.fetchone()[0]        
-        if(exists):
-            legalQuery = """UPDATE Legalities SET [CardId]=?,[standard]=?,[future]=?,[historic]=?,[timeless]=?,[gladiator]=?,[pioneer]=?,[explorer]=?,[modern]=?,[legacy]=?,[pauper]=?,[vintage]=?,[penny]=?,[commander]=?,[oathbreaker]=?,[standardbrawl]=?,[brawl]=?,[alchemy]=?,[paupercommander]=?,[duel]=?,[oldschool]=?,[premodern]=?,[predh]=?"""
+        if(exists>0):
+            legalQuery = """UPDATE Legalities SET [standard]=?,[future]=?,[historic]=?,[timeless]=?,[gladiator]=?,[pioneer]=?,[explorer]=?,[modern]=?,[legacy]=?,[pauper]=?,[vintage]=?,[penny]=?,[commander]=?,[oathbreaker]=?,[standardbrawl]=?,[brawl]=?,[alchemy]=?,[paupercommander]=?,[duel]=?,[oldschool]=?,[premodern]=?,[predh]=?, Update_Date=GETDATE() WHERE [CardId]=?"""
             legalData = (cardp.standard,cardp.future,cardp.historic,cardp.timeless,cardp.gladiator,cardp.pioneer,cardp.explorer,cardp.modern,cardp.legacy,cardp.pauper,
                             cardp.vintage,cardp.penny,cardp.commander,cardp.oathbreaker,cardp.standardbrawl,cardp.brawl,cardp.alchemy,cardp.paupercommander,cardp.duel,
                             cardp.oldschool,cardp.premodern,cardp.predh,card.id)
         else:                        
-            legalQuery = """INSERT INTO Legalities ([CardId],[standard],[future],[historic],[timeless],[gladiator],[pioneer],[explorer],[modern],[legacy],[pauper],[vintage],[penny],[commander],[oathbreaker],[standardbrawl],[brawl],[alchemy],[paupercommander],[duel],[oldschool],[premodern],[predh])
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"""
+            legalQuery = """INSERT INTO Legalities ([CardId],[standard],[future],[historic],[timeless],[gladiator],[pioneer],[explorer],[modern],[legacy],[pauper],[vintage],[penny],[commander],[oathbreaker],[standardbrawl],[brawl],[alchemy],[paupercommander],[duel],[oldschool],[premodern],[predh],[Update_Date])
+                            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,GETDATE())"""
             legalData = (card.id,cardp.standard,cardp.future,cardp.historic,cardp.timeless,cardp.gladiator,cardp.pioneer,cardp.explorer,cardp.modern,cardp.legacy,cardp.pauper,
                             cardp.vintage,cardp.penny,cardp.commander,cardp.oathbreaker,cardp.standardbrawl,cardp.brawl,cardp.alchemy,cardp.paupercommander,cardp.duel,
                             cardp.oldschool,cardp.premodern,cardp.predh)

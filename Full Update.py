@@ -7,6 +7,8 @@ debug = False
 sample = False
 skip = 96315
 
+all_card_options = []
+
 # Define connection parameters
 server = r'(localdb)\MSSQLLocalDB' # Replace with your server name
 database = 'CardCatalog'  # Replace with your database name
@@ -396,6 +398,10 @@ except Exception as e:
 
 def processCard(card):    
     try:
+        keys = card.keys()
+        for i in keys:
+            all_card_options.append(i)
+        all_card_options = list(set(all_card_options))
         processed_card = formatted_card(card)        
         if(debug):
             print(processed_card.errors)

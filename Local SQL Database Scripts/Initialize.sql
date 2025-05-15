@@ -128,6 +128,7 @@ CREATE TABLE [dbo].[Legalities](
 	[oldschool] [varchar](50) NOT NULL,
 	[premodern] [varchar](50) NOT NULL,
 	[predh] [varchar](50) NOT NULL,
+	[Update_Date] [datetime2](7) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[CardId] ASC
@@ -141,6 +142,7 @@ CREATE TABLE [dbo].[Inventory](
 	[Quantity] [int] NULL,
 	[foiled] [char](1) NULL,
 	[Proxied] [char](1) NULL,
+	[Update_Date] [datetime2](7) NULL,
  CONSTRAINT [PK_Inventory] PRIMARY KEY CLUSTERED 
 (
 	[Set] ASC,
@@ -154,6 +156,7 @@ CREATE TABLE [dbo].[Decks](
 	[Name] [nvarchar](200) NOT NULL,
 	[Description] [nvarchar](200) NULL,
 	[Colors] [varchar](5) NULL,
+	[Update_Date] [datetime2](7) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
