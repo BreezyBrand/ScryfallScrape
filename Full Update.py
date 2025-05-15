@@ -5,15 +5,16 @@ import json
 #debug options
 debug = False
 sample = False
-skip = 96315
+sample_size = 10000
+skip = 10000
 
 all_card_options = []
 
 # Define connection parameters
 server = r'(localdb)\MSSQLLocalDB' # Replace with your server name
 database = 'CardCatalog'  # Replace with your database name
-username = 'cardLoader'  # Use your username if required, else you can skip this
-password = 'cardLoader'  # Use your password if required, else you can skip this
+username = ''  # Use your username if required, else you can skip this
+password = ''  # Use your password if required, else you can skip this
 
 #Create formatted_card class
 class formatted_card:
@@ -329,6 +330,55 @@ class formatted_card:
             self.printed_name = str(card['printed_name'])
         except:
             self.printed_name = ''        
+        try:
+            self.game_changer = str(card['game_changer'])
+        except:
+            self.game_changer = ''        
+        try:
+            self.printed_type_line = str(card['printed_type_line'])
+        except:
+            self.printed_type_line = ''                
+        try:
+            self.printed_text = str(card['printed_text'])
+        except:
+            self.printed_text = ''        
+        try:
+            self.color_indicator = str(card['color_indicator'])
+        except:
+            self.color_indicator = ''        
+        try:
+            self.tcgplayer_etched_id = str(card['tcgplayer_etched_id'])
+        except:
+            self.tcgplayer_etched_id = ''        
+        try:
+            self.content_warning = str(card['content_warning'])
+        except:
+            self.content_warning = ''        
+        try:
+            self.flavor_name = str(card['flavor_name'])
+        except:
+            self.flavor_name = ''        
+        try:
+            self.attraction_lights = str(card['attraction_lights'])
+        except:
+            self.attraction_lights = ''        
+        try:
+            self.variation_of = str(card['variation_of'])
+        except:
+            self.variation_of = ''        
+        try:
+            self.life_modifier = str(card['life_modifier'])
+        except:
+            self.life_modifier = ''        
+        try:
+            self.hand_modifier = str(card['hand_modifier'])
+        except:
+            self.hand_modifier = ''        
+        try:
+            self.defense = str(card['defense'])
+        except:
+            self.defense = ''
+
         
 class priced_card():
     def __init__(self,args):
@@ -378,7 +428,6 @@ class priced_card():
 # Create the connection string
 connection_string = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};'
 count=0
-row=1
 
 # If authentication is required, add uid and pwd
 if username and password:
@@ -388,25 +437,28 @@ if username and password:
 try:
     conn = pyodbc.connect(connection_string)
     cursor = conn.cursor()
-    clear_price_query = "DELETE FROM PriceHistory WHERE Age='Old'"
-    cursor.execute(clear_price_query)
-    shift_price_query = "UPDATE PriceHistory SET Age='Old'"
-    cursor.execute(shift_price_query)
+    if skip == 0:
+        clear_price_query = "DELETE FROM PriceHistory WHERE Age='Old'"
+        cursor.execute(clear_price_query)
+        shift_price_query = "UPDATE PriceHistory SET Age='Old'"
+        cursor.execute(shift_price_query)
     print("Connection successful!")    
 except Exception as e:
     print(f"Error: {e}")
 
 def processCard(card):    
-    try:
-        keys = card.keys()
-        for i in keys:
-            all_card_options.append(i)
-        all_card_options = list(set(all_card_options))
+    try:        
         processed_card = formatted_card(card)        
         if(debug):
             print(processed_card.errors)
+        newKeys = card.keys()
+        for i in newKeys:
+            if i in all_card_options:
+                pass
+            else:
+                all_card_options.append(i)
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}")                
     
     return processed_card
 
@@ -426,14 +478,17 @@ def postUpdate():
     conn.commit()
     print("Card roster update logged...")
 
+
 def saveCardAttempt(card):
     try:
         #Check if the record exists
-        query_check = "SELECT COUNT(*) FROM Cards WHERE id = ?;"
-        cursor.execute(query_check, (card.id))
-        exists = cursor.fetchone()[0]
-        
-        data = (card.object,card.oracle_id,card.multiverse_ids,card.mtgo_id,card.mtgo_foil_id,card.tcgplayer_id,card.cardmarket_id,card.name,card.lang,card.released_at,card.uri,card.scryfall_uri,card.layout,card.highres_image,card.image_status,card.image_uris,card.mana_cost,card.cmc,card.type_line,card.oracle_text,card.power,card.toughness,card.colors,card.color_identity,card.keywords,card.legalities,card.games,card.reserved,card.foil,card.nonfoil,card.finishes,card.oversized,card.promo,card.reprint,card.variation,card.set_id,card.set,card.set_name,card.set_type,card.set_uri,card.set_search_uri,card.scryfall_set_uri,card.rulings_uri,card.prints_search_uri,card.collector_number,card.digital,card.rarity,card.flavor_text,card.card_back_id,card.artist,card.artist_ids,card.illustration_id,card.border_color,card.frame,card.full_art,card.textless,card.booster,card.story_spotlight,card.edhrec_rank,card.penny_rank,card.prices,card.related_uris,card.purchase_uris,card.all_parts,card.promo_types,card.arena_id,card.security_stamp,card.card_faces,card.preview,card.produced_mana,card.watermark,card.frame_effects,card.loyalty,card.printed_name,card.id)
+        #query_check = "SELECT COUNT(*) FROM Cards WHERE id = ?;"
+        #cursor.execute(query_check, (card.id))
+        #exists = cursor.fetchone()[0]
+        exists = False
+
+        data = (card.object,card.oracle_id,card.multiverse_ids,card.mtgo_id,card.mtgo_foil_id,card.tcgplayer_id,card.cardmarket_id,card.name,card.lang,card.released_at,card.uri,card.scryfall_uri,card.layout,card.highres_image,card.image_status,card.image_uris,card.mana_cost,card.cmc,card.type_line,card.oracle_text,card.power,card.toughness,card.colors,card.color_identity,card.keywords,card.legalities,card.games,card.reserved,card.foil,card.nonfoil,card.finishes,card.oversized,card.promo,card.reprint,card.variation,card.set_id,card.set,card.set_name,card.set_type,card.set_uri,card.set_search_uri,card.scryfall_set_uri,card.rulings_uri,card.prints_search_uri,card.collector_number,card.digital,card.rarity,card.flavor_text,card.card_back_id,card.artist,card.artist_ids,card.illustration_id,card.border_color,card.frame,card.full_art,card.textless,card.booster,card.story_spotlight,card.edhrec_rank,card.penny_rank,card.prices,card.related_uris,card.purchase_uris,card.all_parts,card.promo_types,card.arena_id,card.security_stamp,card.card_faces,card.preview,card.produced_mana,card.watermark,card.frame_effects,card.loyalty,card.printed_name,card.game_changer,
+                card.printed_type_line,card.printed_text,card.color_indicator,card.tcgplayer_etched_id,card.content_warning,card.flavor_name,card.attraction_lights,card.variation_of,card.life_modifier,card.hand_modifier,card.defense,card.id)
 
         if exists:
             if(debug):
@@ -515,7 +570,19 @@ def saveCardAttempt(card):
                 [watermark]=?,
                 [frame_effects]=?,
                 [loyalty]=?,
-                [printed_name]=?
+                [printed_name]=?,
+                [game_changer]=?,
+                [printed_type_line]=?,
+                [printed_text]=?,
+                [color_indicator]=?,
+                [tcgplayer_etched_id]=?,
+                [content_warning]=?,
+                [flavor_name]=?,
+                [attraction_lights]=?,
+                [variation_of]=?,
+                [life_modifier]=?,
+                [hand_modifier]=?,
+                [defense]=?
             WHERE [id]=?
             """
             cursor.execute(update_query, data)
@@ -525,8 +592,8 @@ def saveCardAttempt(card):
             method = "inserted"
             #Set Insert Query
             insert_query = """
-            INSERT INTO Cards ([object],[oracle_id],[multiverse_ids],[mtgo_id],[mtgo_foil_id],[tcgplayer_id],[cardmarket_id],[name],[lang],[released_at],[uri],[scryfall_uri],[layout],[highres_image],[image_status],[image_uris],[mana_cost],[cmc],[type_line],[oracle_text],[power],[toughness],[colors],[color_identity],[keywords],[legalities],[games],[reserved],[foil],[nonfoil],[finishes],[oversized],[promo],[reprint],[variation],[set_id],[set],[set_name],[set_type],[set_uri],[set_search_uri],[scryfall_set_uri],[rulings_uri],[prints_search_uri],[collector_number],[digital],[rarity],[flavor_text],[card_back_id],[artist],[artist_ids],[illustration_id],[border_color],[frame],[full_art],[textless],[booster],[story_spotlight],[edhrec_rank],[penny_rank],[prices],[related_uris],[purchase_uris],[all_parts],[promo_types],[arena_id],[security_stamp],[card_faces],[preview],[produced_mana],[watermark],[frame_effects],[loyalty],[printed_name],[id]) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+            INSERT INTO Cards ([object],[oracle_id],[multiverse_ids],[mtgo_id],[mtgo_foil_id],[tcgplayer_id],[cardmarket_id],[name],[lang],[released_at],[uri],[scryfall_uri],[layout],[highres_image],[image_status],[image_uris],[mana_cost],[cmc],[type_line],[oracle_text],[power],[toughness],[colors],[color_identity],[keywords],[legalities],[games],[reserved],[foil],[nonfoil],[finishes],[oversized],[promo],[reprint],[variation],[set_id],[set],[set_name],[set_type],[set_uri],[set_search_uri],[scryfall_set_uri],[rulings_uri],[prints_search_uri],[collector_number],[digital],[rarity],[flavor_text],[card_back_id],[artist],[artist_ids],[illustration_id],[border_color],[frame],[full_art],[textless],[booster],[story_spotlight],[edhrec_rank],[penny_rank],[prices],[related_uris],[purchase_uris],[all_parts],[promo_types],[arena_id],[security_stamp],[card_faces],[preview],[produced_mana],[watermark],[frame_effects],[loyalty],[printed_name],[game_changer],[printed_type_line],[printed_text],[color_indicator],[tcgplayer_etched_id],[content_warning],[flavor_name],[attraction_lights],[variation_of],[life_modifier],[hand_modifier],[defense],[id]) 
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
             """
             # Execute the insert query
             cursor.execute(insert_query, data)
@@ -539,7 +606,7 @@ def saveCardAttempt(card):
         # Commit the changes
         conn.commit()
         if(debug):
-            print("Data "+method+" successfully!")
+            print("Data "+method+" successfully!")            
 
     except Exception as e:
         print(f"Ln 530 Error: {e}")
@@ -553,13 +620,13 @@ with open('cards.txt','r',encoding="utf8") as file2:
                 all_but_one = str(line[:-2])
                 card = json.loads(all_but_one)
                 processed_card = processCard(card)                
-                saveCardAttempt(processed_card)                
-                row = row+1
-        except:
-            print("An error occured parsing line "+str(count))            
+                saveCardAttempt(processed_card)
+        except Exception as e:            
+            print(f"An error ({e}) occured parsing line {str(count)}")            
         count = count + 1
-        if(sample and count>100):
-            postUpdate()
+        if(sample and count>sample_size):            
+            #postUpdate()
+            #print(all_card_options)
             cursor.close()
             conn.close()
             quit()

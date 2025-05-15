@@ -86,6 +86,18 @@ CREATE TABLE [dbo].[Cards](
 	[frame_effects] [varchar](max) NULL,
 	[loyalty] [varchar](max) NULL,
 	[printed_name] [varchar](max) NULL,
+	[game_changer] [varchar](max) NULL,
+	[printed_type_line] [varchar](max) NULL,
+	[printed_text] [varchar](max) NULL,
+	[color_indicator] [varchar](max) NULL,
+	[tcgplayer_etched_id] [varchar](max) NULL,
+	[content_warning] [varchar](max) NULL,
+	[flavor_name] [varchar](max) NULL,
+	[attraction_lights] [varchar](max) NULL,
+	[variation_of] [varchar](max) NULL,
+	[life_modifier] [varchar](max) NULL,
+	[hand_modifier] [varchar](max) NULL,
+	[defense] [varchar](max) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
