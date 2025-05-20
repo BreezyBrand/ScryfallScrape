@@ -4,9 +4,9 @@ import json
 
 #debug options
 debug = False
-sample = False
+sample = True
 sample_size = 10000
-skip = 10000
+skip = 0
 
 all_card_options = []
 

@@ -95,6 +95,18 @@ namespace SFS_UI.Models
         public string frame_effects { get; set; }
         public string loyalty { get; set; }
         public string printed_name { get; set; }
+        public string game_changer { get; set; }
+        public string printed_type_line { get; set; }
+        public string printed_text { get; set; }
+        public string color_indicator { get; set; }
+        public string tcgplayer_etched_id { get; set; }
+        public string content_warning { get; set; }
+        public string flavor_name { get; set; }
+        public string attraction_lights { get; set; }
+        public string variation_of { get; set; }
+        public string life_modifier { get; set; }
+        public string hand_modifier { get; set; }
+        public string defense { get; set; }
         public string DisplayNumber()
         {
             var len = this.collector_number.Length;
@@ -119,7 +131,7 @@ namespace SFS_UI.Models
         }
         public List<CardFace> splitCardFaces()
         {
-            string jsonString = this.card_faces.Replace("\"","\"");
+            string jsonString = this.card_faces.Replace("\"", "\"");
             try
             {
                 var formatedFaces = new List<CardFace>();
