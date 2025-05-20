@@ -1,0 +1,11 @@
+﻿@model List<SFS_UI.Models.Card>
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var card in Model)
+        {
+            @Html.Partial("_DisplayCard", card)
+        }
+    </div>
+</div>

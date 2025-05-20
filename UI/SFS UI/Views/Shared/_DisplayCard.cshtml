@@ -1,0 +1,60 @@
+﻿@model SFS_UI.Models.Card
+@{
+
+}
+
+@if (Model._name.Contains("//"))
+{
+    var cardFaces = Model.splitCardFaces();
+    <div class="col-6 container border">
+        <div class="row">
+            @foreach (var face in cardFaces)
+            {
+                <div class="col-9">
+                    <h4>@face.name</h4>
+                </div>
+                <div class="col-3">
+                    <p>@face.mana_cost</p>
+                </div>
+                <div class="col-9">
+                    <p>@face.type_line</p>
+                </div>
+                <div class="col-3">
+                    <p>@Model.set_name</p>
+                </div>
+                <div class="col-12">
+                    <p>@face.oracle_text</p>
+                </div>
+                <div class="12">
+                    <p>@Model.set.ToUpper() @Model.DisplayNumber()</p>
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="col-6 container border">
+        <div class="row">
+            <div class="col-9">
+                <h4>@Model._name</h4>
+            </div>
+            <div class="col-3">
+                <p>@Model.mana_cost</p>
+            </div>
+            <div class="col-9">
+                <p>@Model.type_line</p>
+            </div>
+            <div class="col-3">
+                <p>@Model.set_name</p>
+            </div>
+            <div class="col-12">
+                <p>@Model.oracle_text</p>
+            </div>
+            <div class="12">
+                <p>@Model.set.ToUpper() @Model.DisplayNumber()</p>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,131 @@
+﻿@model SFS_UI.Models.CardViews;
+@{
+    ViewData["Title"] = "Home";
+}
+<h1>Welcome to SFScrape</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h4>Search cards:</h4>
+        </div>
+        <div class="col-10">
+            <label class="control-label">
+                set:
+            </label>
+            <input id="set" class="form-control" />
+            <label class="control-label">
+                cn:
+            </label>
+            <input id="cn" class="form-control" />
+            <label class="control-label">
+                name:
+            </label>
+            <input id="cardName" class="form-control" />
+            <label class="control-label">
+                type:
+            </label>
+            <input id="cardType" class="form-control" />
+            <label class="control-label">
+                oracle:
+            </label>
+            <input id="oracle" class="form-control" />
+            <label class="control-label">
+                format:
+            </label>
+            <input id="format" class="form-control" />
+        </div>
+        <div class="col-2">
+            <button id="searchButton" class="btn btn-success">Search</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid col-6">
+            <div class="row">
+                <div class="col-12">
+                    <p>
+                        Check out these cards in your inventory:
+                    </p>
+                </div>
+                @foreach (var card in Model.displayInventory)
+                {
+                    <div class="col-6">
+                        <d class="mtgCard">
+                            <p>
+                                @card._name<br />
+                                @card.type_line
+                            </p>
+                            <input class="set collapse" value="@card.set" />
+                            <input class="cn collapse" value="@card.collector_number" />
+                        </d>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="container-fluid col-6">
+            <div class="row">
+                <div class="col-12">
+                    <p>
+                        Or check out these cards:
+                    </p>
+                </div>
+                @foreach (var card in Model.displayCards)
+                {
+                    <div class="col-6">
+                        <d class="mtgCard">
+                            <p>
+                                @card._name<br />
+                                @card.type_line
+                            </p>
+                            <input class="set collapse" value="@card.set" />
+                            <input class="cn collapse" value="@card.collector_number" />
+                        </d>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-12" id="cardBlock">
+        </div>
+    </div>    
+</div>
+
+<script>
+    $(document).ready(function(){
+        $(".mtgCard").click(function(){
+            var $set = $(this).find(".set").first().val().toUpperCase();
+            var $cn = $(this).find(".cn").first().val().toUpperCase();
+            console.log($set +":"+$cn)
+
+            $.ajax({
+                url: "../Resource/findCard/?set="+$set+"&cn="+$cn,
+                success: function(result){
+                    $("#cardBlock").html(result);
+                }
+            })
+        })
+
+
+        $("#searchButton").click(function(){
+            console.log("Searching...")
+            $.ajax({
+                url: "../Resource/searchCards/",
+                data:{
+                    set: $("#set").val(),
+                    cn: $("#cn").val(),
+                    name: $("#cardName").val(),
+                    type: $("#cardType").val(),
+                    oracle: $("#oracle").val(),
+                    format: $("#format").val()
+                },
+                success: function(result){
+                    $("#cardBlock").html(result);
+                },
+                erorr: function(result){
+                    console.log(result)
+                }
+            })
+        })
+    })
+</script>

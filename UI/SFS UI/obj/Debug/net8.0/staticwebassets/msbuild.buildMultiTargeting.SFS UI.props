@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SFS UI.props" />
+</Project>
