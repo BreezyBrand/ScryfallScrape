@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FOdjhp3BoT1aAIIzEqgS+qOTaPT2tyvuqswqgdm8Noc=",
+  "Hash": "o9NEsW8buiMABdONKDhtNevf/bLDWL+bvNZ4BIzXIPQ=",
   "Source": "SFS UI",
   "BasePath": "_content/SFS UI",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "gwcbegoie3",
-      "Integrity": "8NvS/n52Ai39O27OH0UFMR8wRLE9vh9l5djt05JI/5E=",
+      "Fingerprint": "1fu9ze3pj5",
+      "Integrity": "w5Kqa2MfO2iyOdLk5LdUSOivhCTsLKHMSn7rZ8IySH4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1426,6 +1426,51 @@
   ],
   "Endpoints": [
     {
+      "Route": "css/site.1fu9ze3pj5.css",
+      "AssetFile": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5516"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"w5Kqa2MfO2iyOdLk5LdUSOivhCTsLKHMSn7rZ8IySH4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 19:10:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1fu9ze3pj5"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-w5Kqa2MfO2iyOdLk5LdUSOivhCTsLKHMSn7rZ8IySH4="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -1436,7 +1481,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1158"
+          "Value": "5516"
         },
         {
           "Name": "Content-Type",
@@ -1444,11 +1489,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"8NvS/n52Ai39O27OH0UFMR8wRLE9vh9l5djt05JI/5E=\""
+          "Value": "\"w5Kqa2MfO2iyOdLk5LdUSOivhCTsLKHMSn7rZ8IySH4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 15:55:48 GMT"
+          "Value": "Wed, 21 May 2025 19:10:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1458,52 +1503,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-8NvS/n52Ai39O27OH0UFMR8wRLE9vh9l5djt05JI/5E="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.gwcbegoie3.css",
-      "AssetFile": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1158"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"8NvS/n52Ai39O27OH0UFMR8wRLE9vh9l5djt05JI/5E=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 15:55:48 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "gwcbegoie3"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-8NvS/n52Ai39O27OH0UFMR8wRLE9vh9l5djt05JI/5E="
+          "Value": "sha256-w5Kqa2MfO2iyOdLk5LdUSOivhCTsLKHMSn7rZ8IySH4="
         }
       ]
     },

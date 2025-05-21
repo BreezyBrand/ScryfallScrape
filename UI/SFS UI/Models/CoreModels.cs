@@ -151,24 +151,25 @@ namespace SFS_UI.Models
                         flavor_text = "!!none"
                     };
                     List<string> face_values = face.Split("', '").ToList();
-                    
+
                     List<string> parsedFace_values = new List<string>();
-                    foreach(var k in face_values)
+                    foreach (var k in face_values)
                     {
-                        if(k.Split("\", '").Count() > 1)
+                        if (k.Split("\", '").Count() > 1)
                         {
                             parsedFace_values.Add(k.Split("\", '")[0]);
                             parsedFace_values.Add(k.Split("\", '")[1]);
-                        } else
+                        }
+                        else
                         {
                             parsedFace_values.Add(k);
                         }
-                    }                    
-                    
+                    }
+
                     foreach (var v in parsedFace_values)
                     {
                         this_key = v.Split("': ")[0].Trim().Replace("'", "");
-                        this_value = v.Replace(this_key+"': '","").Replace(this_key+"': \"","");
+                        this_value = v.Replace(this_key + "': '", "").Replace(this_key + "': \"", "");
                         //Debug.WriteLine(this_key + ": " + this_value);
                         newFace.AssignValue(this_key, this_value);
                     }
@@ -224,6 +225,7 @@ namespace SFS_UI.Models
             return this;
         }
     }
+
     [Table("Inventory"), PrimaryKey(nameof(Set), nameof(Collector_Number), nameof(foiled))]
     public class Inventory
     {
@@ -233,6 +235,7 @@ namespace SFS_UI.Models
         public string foiled { get; set; }
         public int Quantity { get; set; }
         public string Proxied { get; set; }
+        public string CardId { get; set; }
     }
 
     //Non-Table Models

@@ -4,7 +4,7 @@ import json
 
 #debug options
 debug = False
-sample = True
+sample = False
 sample_size = 10000
 skip = 0
 
@@ -592,8 +592,8 @@ def saveCardAttempt(card):
             method = "inserted"
             #Set Insert Query
             insert_query = """
-            INSERT INTO Cards ([object],[oracle_id],[multiverse_ids],[mtgo_id],[mtgo_foil_id],[tcgplayer_id],[cardmarket_id],[name],[lang],[released_at],[uri],[scryfall_uri],[layout],[highres_image],[image_status],[image_uris],[mana_cost],[cmc],[type_line],[oracle_text],[power],[toughness],[colors],[color_identity],[keywords],[legalities],[games],[reserved],[foil],[nonfoil],[finishes],[oversized],[promo],[reprint],[variation],[set_id],[set],[set_name],[set_type],[set_uri],[set_search_uri],[scryfall_set_uri],[rulings_uri],[prints_search_uri],[collector_number],[digital],[rarity],[flavor_text],[card_back_id],[artist],[artist_ids],[illustration_id],[border_color],[frame],[full_art],[textless],[booster],[story_spotlight],[edhrec_rank],[penny_rank],[prices],[related_uris],[purchase_uris],[all_parts],[promo_types],[arena_id],[security_stamp],[card_faces],[preview],[produced_mana],[watermark],[frame_effects],[loyalty],[printed_name],[game_changer],[printed_type_line],[printed_text],[color_indicator],[tcgplayer_etched_id],[content_warning],[flavor_name],[attraction_lights],[variation_of],[life_modifier],[hand_modifier],[defense],[id]) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+            INSERT INTO Cards ([object],[oracle_id],[multiverse_ids],[mtgo_id],[mtgo_foil_id],[tcgplayer_id],[cardmarket_id],[name],[lang],[released_at],[uri],[scryfall_uri],[layout],[highres_image],[image_status],[image_uris],[mana_cost],[cmc],[type_line],[oracle_text],[power],[toughness],[colors],[color_identity],[keywords],[legalities],[games],[reserved],[foil],[nonfoil],[finishes],[oversized],[promo],[reprint],[variation],[set_id],[set],[set_name],[set_type],[set_uri],[set_search_uri],[scryfall_set_uri],[rulings_uri],[prints_search_uri],[collector_number],[digital],[rarity],[flavor_text],[card_back_id],[artist],[artist_ids],[illustration_id],[border_color],[frame],[full_art],[textless],[booster],[story_spotlight],[edhrec_rank],[penny_rank],[prices],[related_uris],[purchase_uris],[all_parts],[promo_types],[arena_id],[security_stamp],[card_faces],[preview],[produced_mana],[watermark],[frame_effects],[loyalty],[printed_name],[game_changer],[printed_type_line],[printed_text],[color_indicator],[tcgplayer_etched_id],[content_warning],[flavor_name],[attraction_lights],[variation_of],[life_modifier],[hand_modifier],[defense],[id],[inInventory]) 
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'N');
             """
             # Execute the insert query
             cursor.execute(insert_query, data)

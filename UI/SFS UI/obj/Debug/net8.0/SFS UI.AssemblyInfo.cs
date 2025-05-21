@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SFS UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4efbde8be2362fc743e9c9a39d49c558df1b74fe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf95a882e5cd1dcb7edd2051adfa6807957234fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("SFS UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SFS UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

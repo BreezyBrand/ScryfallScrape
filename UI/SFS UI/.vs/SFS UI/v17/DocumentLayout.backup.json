@@ -7,32 +7,43 @@
       "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\views\\shared\\_displaycard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:views\\shared\\_displaycard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\models\\coremodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:models\\coremodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\models\\viewhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:models\\viewhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\views\\shared\\_displaycard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:views\\shared\\_displaycard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bsorensen\\AppData\\Local\\Temp\\plljxjxe..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\wwwroot\\images\\symbols\\all_symbols.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
-      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:wwwroot\\images\\symbols\\all_symbols.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\models\\viewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:models\\viewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\views\\shared\\_searchcards.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:views\\shared\\_searchcards.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\models\\viewhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:models\\viewhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\controllers\\resourcecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:controllers\\resourcecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -54,16 +65,10 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bsorensen\\AppData\\Local\\Temp\\ydjyb4qs..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\controllers\\resourcecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:controllers\\resourcecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bsorensen\\AppData\\Local\\Temp\\plljxjxe..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|c:\\users\\bsorensen\\desktop\\just for fun\\sfscrape\\ui\\sfs ui\\models\\viewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EEBE8F0A-E22D-4227-9BE7-0F2A54C299FF}|SFS UI.csproj|solutionrelative:models\\viewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bsorensen\\AppData\\Local\\Temp\\plljxjxe..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -73,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -81,15 +86,53 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SQLQuery3.sql ",
+              "DocumentMoniker": "C:\\Users\\bsorensen\\AppData\\Local\\Temp\\plljxjxe..sql",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\plljxjxe..sql",
+              "ToolTip": "SQLQuery3.sql *",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-05-21T19:01:33.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CoreModels.cs",
+              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\CoreModels.cs",
+              "RelativeDocumentMoniker": "Models\\CoreModels.cs",
+              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\CoreModels.cs",
+              "RelativeToolTip": "Models\\CoreModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T14:56:56.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_DisplayCard.cshtml",
+              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Shared\\_DisplayCard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_DisplayCard.cshtml",
+              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Shared\\_DisplayCard.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_DisplayCard.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-20T14:04:52.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "all_symbols.png - PNG [1046x731, 32 bit, PNG]",
-              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\Images\\Symbols\\all_symbols.png",
-              "RelativeDocumentMoniker": "wwwroot\\Images\\Symbols\\all_symbols.png",
-              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\Images\\Symbols\\all_symbols.png - PNG [1046x731, 32 bit, PNG]",
-              "RelativeToolTip": "wwwroot\\Images\\Symbols\\all_symbols.png - PNG [1046x731, 32 bit, PNG]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-05-21T13:27:14.289Z",
-              "EditorCaption": " - PNG [1046x731, 32 bit, PNG]"
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T13:01:17.969Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -99,48 +142,9 @@
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\css\\site.css",
               "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AgIAABUAAAAAAAAAAAAcwCkAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAACwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-05-21T13:22:21.854Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ViewHelper.cs",
-              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\ViewHelper.cs",
-              "RelativeDocumentMoniker": "Models\\ViewHelper.cs",
-              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\ViewHelper.cs",
-              "RelativeToolTip": "Models\\ViewHelper.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAA2wBYAAACZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T12:17:15.377Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CoreModels.cs",
-              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\CoreModels.cs",
-              "RelativeDocumentMoniker": "Models\\CoreModels.cs",
-              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\CoreModels.cs",
-              "RelativeToolTip": "Models\\CoreModels.cs",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAowKwAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T14:56:56.212Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_DisplayCard.cshtml",
-              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Shared\\_DisplayCard.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_DisplayCard.cshtml",
-              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Shared\\_DisplayCard.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_DisplayCard.cshtml",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAACYAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-20T14:04:52.67Z",
               "EditorCaption": ""
             },
             {
@@ -151,14 +155,66 @@
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAowDMAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-20T12:57:57.639Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ViewModels.cs",
+              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\ViewModels.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels.cs",
+              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\ViewModels.cs",
+              "RelativeToolTip": "Models\\ViewModels.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAowD8AAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T13:05:11.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "ViewHelper.cs",
+              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\ViewHelper.cs",
+              "RelativeDocumentMoniker": "Models\\ViewHelper.cs",
+              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\ViewHelper.cs",
+              "RelativeToolTip": "Models\\ViewHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T12:17:15.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_SearchCards.cshtml",
+              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Shared\\_SearchCards.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_SearchCards.cshtml",
+              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Shared\\_SearchCards.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_SearchCards.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-20T15:22:12.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ResourceController.cs",
+              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Controllers\\ResourceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ResourceController.cs",
+              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Controllers\\ResourceController.cs",
+              "RelativeToolTip": "Controllers\\ResourceController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAwCgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T14:03:07.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "bootstrap.esm.min.js.map",
               "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
               "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
@@ -171,20 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_SearchCards.cshtml",
-              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Shared\\_SearchCards.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_SearchCards.cshtml",
-              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Shared\\_SearchCards.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_SearchCards.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-20T15:22:12.037Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "bootstrap.bundle.js.map",
               "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
               "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
@@ -197,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -210,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "bootstrap.bundle.js",
               "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
               "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
@@ -223,7 +266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -236,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "ydjyb4qs..sql",
               "DocumentMoniker": "C:\\Users\\bsorensen\\AppData\\Local\\Temp\\ydjyb4qs..sql",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\ydjyb4qs..sql",
@@ -244,42 +287,6 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\ydjyb4qs..sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2025-05-20T15:46:31.259Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ResourceController.cs",
-              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Controllers\\ResourceController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ResourceController.cs",
-              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Controllers\\ResourceController.cs",
-              "RelativeToolTip": "Controllers\\ResourceController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAlwDwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T14:03:07.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ViewModels.cs",
-              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\ViewModels.cs",
-              "RelativeDocumentMoniker": "Models\\ViewModels.cs",
-              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Models\\ViewModels.cs",
-              "RelativeToolTip": "Models\\ViewModels.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAuwCYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T13:05:11.354Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAIAwwB4AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T13:01:17.969Z"
             }
           ]
         }

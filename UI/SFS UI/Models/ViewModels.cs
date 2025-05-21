@@ -34,8 +34,8 @@ namespace SFS_UI.Models
         {
             Random rand = new Random();            
             int skip = rand.Next(this.Cards.Count());            
-            List<Card> sample_cards = this.Cards.Skip(skip).Take(10).ToList();            
-
+            List<Card> sample_cards = this.Cards.Skip(skip).Take(10).ToList();
+            List<string> inv_ids = this.Inventory.Select(x => x.CardId).ToList();
             foreach (var card in sample_cards)
             {
                 try
@@ -61,7 +61,7 @@ namespace SFS_UI.Models
             {
                 try
                 {
-                    var thisCard = RefToCard(invcard.Set, invcard.Collector_Number);
+                    var thisCard = RefToCard(invcard.Set, invcard.Collector_Number);                    
                     this.displayInventory.Add(thisCard);
                 }
                 catch (Exception e)

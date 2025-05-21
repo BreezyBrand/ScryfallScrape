@@ -19,8 +19,39 @@ html {
 
 .detailLine {
     font-size: 10pt;
-    padding: 0px 15px 0px 0px;
-    margin: 0px 15px 0px 0px;
+}
+
+.mtgCardName {
+    font-size: 14pt;
+    min-height: 45px;
+}
+
+.mtgCardMC {
+    
+}
+
+.mtgCardType {
+    font-size: 10pt;
+    min-height:25px;
+}
+
+.mtgCardOracle {
+    font-size: 8pt;
+    min-height: 100px;
+}
+
+.mtgCardFlavor {
+    font-size: 8pt;
+    min-height: 100px;    
+    font-style: italic;
+}
+
+.mtgCardSet {
+    font-size: 6pt;
+}
+
+.mtgCardSubline {
+    font-size: 6pt;
 }
 
 .imgBlock {
@@ -150,15 +181,19 @@ html {
     .imgBlock.c2wMana {
         background-position: 0px -59px;
     }
+
     .imgBlock.c2uMana {
         background-position: -15px -59px;
     }
+
     .imgBlock.c2bMana {
         background-position: -30px -59px;
     }
+
     .imgBlock.c2rMana {
         background-position: -45px -59px;
     }
+
     .imgBlock.c2gMana {
         background-position: -60px -59px;
     }
@@ -256,20 +291,4 @@ html {
     display: inline-block; /* To place them next to each other */
     max-height: 15px;
     max-width: 17px;
-}
-
-.cardSymbol {
-    margin-right: 2px;
-}
-
-.cardSymboltrim {
-    min-height: 15px;
-    max-height: 15px;
-    max-width: 15px;
-    overflow: hidden;
-    margin-right: 2px;
-}
-
-.flavorText {
-    font-style: italic;
 }

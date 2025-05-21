@@ -7,36 +7,39 @@
 @if (Model._name.Contains("//"))
 {
     var cardFaces = Model.splitCardFaces();
-    <div class="col-6 container border">
+    <div class="col-6 container border mtgCard">
         <div class="row p-1">
             @foreach (var face in cardFaces)
             {
-                <div class="col-9 mt-2">
-                    <h4>@face.name</h4>
+                <div class="col-9 mt-2 mtgCardName">
+                    <p>@face.name</p>
                 </div>
-                <div class="col-3">
+                <div class="col-3 mtgCardMC">
                     @Html.Raw(helper.convertToHTML(face.mana_cost))
                 </div>
-                <div class="col-9">
+                <div class="col-9 mtgCardType">
                     <p>@face.type_line</p>
                 </div>
-                <div class="col-3">
-                    <p>@Model.set_name</p>
+                <div class="col-3 mtgCardSet">
+                    <p>@Model.set.ToUpper()</p>
                 </div>
-                <div class="col-12">
+                <div class="col-12 mtgCardOracle">
                     @Html.Raw(helper.convertToHTML(face.oracle_text))
                 </div>
                 @if (!face.flavor_text.Equals("!!none"))
                 {
-                    <div class="col-12 small flavorText">
-                        <br />
+                    <div class="col-12 small mtgCardFlavor">
                         @Html.Raw(helper.convertToHTML(face.flavor_text))
                     </div>
                 }
-                <div class="col-12 p-0 m-0">
+                else
+                {
+                    <div class="col-12 small mtgCardFlavor">
+                    </div>
+                }
+                <div class="col-12 mtgSubline">
                     <hr />
                     <p class="detailLine">@Model.set.ToUpper() @Model.DisplayNumber() @face.artist</p>
-                    <hr />
                 </div>
             }
         </div>
@@ -46,29 +49,41 @@ else
 {
     <div class="col-6 container border">
         <div class="row p-1">
-            <div class="col-9 mt-2">
-                <h4>@Model._name</h4>
+            <div class="col-9 mt-2 mtgCardName">
+                <p>@Model._name</p>
             </div>
-            <div class="col-3">
+            <div class="col-3 mtgCardMC">
                 @Html.Raw(helper.convertToHTML(Model.mana_cost))
             </div>
-            <div class="col-9">
+            <div class="col-9 mtgCardType">
                 <p>@Model.type_line</p>
             </div>
-            <div class="col-3">
-                <p>@Model.set_name</p>
+            <div class="col-3 mtgCardSet">
+                <p>@Model.set.ToUpper()</p>
             </div>
-            <div class="col-12">
+            <div class="col-12 mtgCardOracle">
                 @Html.Raw(helper.convertToHTML(Model.oracle_text))
             </div>
-            @if (!Model.flavor_text.Any())
+            @try
             {
-                <div class="col-12 small flavorText">
-                    <br />
-                    @Html.Raw(helper.convertToHTML(Model.flavor_text))
-                </div>
+                if (!Model.flavor_text.Equals(""))
+                {
+                    <div class="col-12 small mtgCardFlavor">
+                        <br />
+                        @Html.Raw(helper.convertToHTML(Model.flavor_text))
+                    </div>
+                }
+                else
+                {
+                    <div class="col-12 small mtgCardFlavor">
+                    </div>
+                }
             }
-            <div class="col-12 p-0 m-0">
+            catch (Exception e)
+            {
+
+            }
+            <div class="col-12 mtgCardSubline">
                 <hr />
                 <p class="detailLine">@Model.set.ToUpper() @Model.DisplayNumber() @Model.artist</p>
                 <hr />
