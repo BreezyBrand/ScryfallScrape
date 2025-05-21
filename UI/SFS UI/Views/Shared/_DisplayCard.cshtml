@@ -1,20 +1,21 @@
 ﻿@model SFS_UI.Models.Card
 @{
-
+    SFS_UI.Models.ViewHelper helper = new SFS_UI.Models.ViewHelper();
+    helper.ban_pictures = true;
 }
 
 @if (Model._name.Contains("//"))
 {
     var cardFaces = Model.splitCardFaces();
     <div class="col-6 container border">
-        <div class="row">
+        <div class="row p-1">
             @foreach (var face in cardFaces)
             {
-                <div class="col-9">
+                <div class="col-9 mt-2">
                     <h4>@face.name</h4>
                 </div>
                 <div class="col-3">
-                    <p>@face.mana_cost</p>
+                    @Html.Raw(helper.convertToHTML(face.mana_cost))
                 </div>
                 <div class="col-9">
                     <p>@face.type_line</p>
@@ -23,12 +24,20 @@
                     <p>@Model.set_name</p>
                 </div>
                 <div class="col-12">
-                    <p>@face.oracle_text</p>
+                    @Html.Raw(helper.convertToHTML(face.oracle_text))
                 </div>
-                <div class="12">
-                    <p>@Model.set.ToUpper() @Model.DisplayNumber()</p>
+                @if (!face.flavor_text.Equals("!!none"))
+                {
+                    <div class="col-12 small flavorText">
+                        <br />
+                        @Html.Raw(helper.convertToHTML(face.flavor_text))
+                    </div>
+                }
+                <div class="col-12 p-0 m-0">
+                    <hr />
+                    <p class="detailLine">@Model.set.ToUpper() @Model.DisplayNumber() @face.artist</p>
+                    <hr />
                 </div>
-                <br />
             }
         </div>
     </div>
@@ -36,12 +45,12 @@
 else
 {
     <div class="col-6 container border">
-        <div class="row">
-            <div class="col-9">
+        <div class="row p-1">
+            <div class="col-9 mt-2">
                 <h4>@Model._name</h4>
             </div>
             <div class="col-3">
-                <p>@Model.mana_cost</p>
+                @Html.Raw(helper.convertToHTML(Model.mana_cost))
             </div>
             <div class="col-9">
                 <p>@Model.type_line</p>
@@ -50,10 +59,19 @@ else
                 <p>@Model.set_name</p>
             </div>
             <div class="col-12">
-                <p>@Model.oracle_text</p>
+                @Html.Raw(helper.convertToHTML(Model.oracle_text))
             </div>
-            <div class="12">
-                <p>@Model.set.ToUpper() @Model.DisplayNumber()</p>
+            @if (!Model.flavor_text.Any())
+            {
+                <div class="col-12 small flavorText">
+                    <br />
+                    @Html.Raw(helper.convertToHTML(Model.flavor_text))
+                </div>
+            }
+            <div class="col-12 p-0 m-0">
+                <hr />
+                <p class="detailLine">@Model.set.ToUpper() @Model.DisplayNumber() @Model.artist</p>
+                <hr />
             </div>
         </div>
     </div>

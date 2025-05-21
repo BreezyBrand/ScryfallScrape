@@ -1,5 +1,10 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\Images\ajax-loader.gif
+wwwroot\Images\filler.png
+wwwroot\Images\Symbols\all_symbols.png
+wwwroot\Images\Symbols\red_mana.png
+wwwroot\Images\Symbols\white_mana.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

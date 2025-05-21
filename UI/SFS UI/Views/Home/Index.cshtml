@@ -1,6 +1,9 @@
 ﻿@model SFS_UI.Models.CardViews;
 @{
     ViewData["Title"] = "Home";
+    var set_default = "FUK";
+    var CN_default = "";
+
 }
 <h1>Welcome to SFScrape</h1>
 <div class="container-fluid">
@@ -8,34 +11,30 @@
         <div class="col-12">
             <h4>Search cards:</h4>
         </div>
-        <div class="col-10">
-            <label class="control-label">
-                set:
-            </label>
-            <input id="set" class="form-control" />
-            <label class="control-label">
-                cn:
-            </label>
-            <input id="cn" class="form-control" />
-            <label class="control-label">
-                name:
-            </label>
-            <input id="cardName" class="form-control" />
-            <label class="control-label">
-                type:
-            </label>
-            <input id="cardType" class="form-control" />
-            <label class="control-label">
-                oracle:
-            </label>
-            <input id="oracle" class="form-control" />
-            <label class="control-label">
-                format:
-            </label>
-            <input id="format" class="form-control" />
+        <div class="col-10 container-fluid">
+            <div class="row g-1">
+                <div class="col-6">                    
+                    <input id="set" class="form-control" placeholder="Set..." value="@set_default"/>
+                </div>
+                <div class="col-6">                                        
+                    <input id="cn" class="form-control" placeholder="Collectors Number..." value="@CN_default"/>
+                </div>
+                <div class="col-6">                    
+                    <input id="cardName" class="form-control" placeholder="Card Name..." />
+                </div>
+                <div class="col-6">
+                    <input id="cardType" class="form-control" placeholder="Type..." />
+                </div>
+                <div class="col-6">
+                    <input id="oracle" class="form-control" placeholder="Oracle..." />
+                </div>
+                <div class="col-6">
+                    <input id="format" class="form-control" placeholder="Format..."/>
+                </div>
+            </div>
         </div>
         <div class="col-2">
-            <button id="searchButton" class="btn btn-success">Search</button>
+            <button id="searchButton" class="btn btn-success w-100 h-100">Search</button>
         </div>
     </div>
     <div class="row">
@@ -88,7 +87,7 @@
     <div class="row">
         <div class="col-12" id="cardBlock">
         </div>
-    </div>    
+    </div>
 </div>
 
 <script>
@@ -127,5 +126,7 @@
                 }
             })
         })
+
+        $("#searchButton").click()
     })
 </script>

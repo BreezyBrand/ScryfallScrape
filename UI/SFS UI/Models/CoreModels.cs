@@ -131,19 +131,50 @@ namespace SFS_UI.Models
         }
         public List<CardFace> splitCardFaces()
         {
-            string jsonString = this.card_faces.Replace("\"", "\"");
+            string this_key;
+            string this_value;
+            int index;
             try
             {
                 var formatedFaces = new List<CardFace>();
-                var faces = JsonDocument.Parse(jsonString);
-
-                for (int i = 0; i < faces.RootElement.GetArrayLength(); i++)
+                List<string> faces = this.card_faces
+                                         .Replace("[{", "")
+                                         .Replace("}}]", "")
+                                         .Replace("'image_uris': {", "")
+                                         .Replace("'colors': [", "'colors': '[")
+                                         .Replace("]", "]'")
+                                         .Split("}, {").ToList();
+                foreach (var face in faces)
                 {
-                    var charstring = faces.RootElement[i].ToString().Replace('[', '"').Replace(']', '"');
-                    var result = JsonConvert.DeserializeObject<CardFace>(charstring);
-                    formatedFaces.Add(result);
+                    CardFace newFace = new CardFace()
+                    {
+                        flavor_text = "!!none"
+                    };
+                    List<string> face_values = face.Split("', '").ToList();
+                    
+                    List<string> parsedFace_values = new List<string>();
+                    foreach(var k in face_values)
+                    {
+                        if(k.Split("\", '").Count() > 1)
+                        {
+                            parsedFace_values.Add(k.Split("\", '")[0]);
+                            parsedFace_values.Add(k.Split("\", '")[1]);
+                        } else
+                        {
+                            parsedFace_values.Add(k);
+                        }
+                    }                    
+                    
+                    foreach (var v in parsedFace_values)
+                    {
+                        this_key = v.Split("': ")[0].Trim().Replace("'", "");
+                        this_value = v.Replace(this_key+"': '","").Replace(this_key+"': \"","");
+                        //Debug.WriteLine(this_key + ": " + this_value);
+                        newFace.AssignValue(this_key, this_value);
+                    }
+                    formatedFaces.Add(newFace);
                 }
-
+                //var faces = JsonDocument.Parse(jsonString);
                 return formatedFaces;
             }
             catch (Exception e)
@@ -182,7 +213,7 @@ namespace SFS_UI.Models
 
             if (normalizedOracleCard.Contains('~'))
             {
-                Debug.WriteLine("This card states its own name");
+                //Debug.WriteLine("This card states its own name");
             }
 
             return normalizedOracleCard.Contains(normalizedOracleRequest);
@@ -221,7 +252,7 @@ namespace SFS_UI.Models
         [JsonProperty("colors")]
         public string colors { get; set; }
         [JsonProperty("flavor_text")]
-        public string flavor_text { get; set; }
+        public string? flavor_text { get; set; }
         [JsonProperty("artist")]
         public string artist { get; set; }
         [JsonProperty("artist_id")]
@@ -230,12 +261,69 @@ namespace SFS_UI.Models
         public string illustration_id { get; set; }
         //[JsonProperty("image_uris")]
         //public List<string> image_uris { get; set; }
-        //'small':
-        //'normal':
-        //'large':
-        //'png':
-        //'art_crop':
-        //'border_crop'
+        public string small { get; set; }
+        public string normal { get; set; }
+        public string large { get; set; }
+        public string png { get; set; }
+        public string art_crop { get; set; }
+        public string border_crop { get; set; }
 
+        public void AssignValue(string this_key, string this_value)
+        {
+            switch (this_key)
+            {
+                case "object":
+                    this._object = this_value;
+                    break;
+                case "name":
+                    this.name = this_value;
+                    break;
+                case "mana_cost":
+                    this.mana_cost = this_value;
+                    break;
+                case "type_line":
+                    this.type_line = this_value;
+                    break;
+                case "oracle_text":
+                    this.oracle_text = this_value;
+                    break;
+                case "colors":
+                    this.colors = this_value;
+                    break;
+                case "flavor_text":
+                    this.flavor_text = this_value;
+                    break;
+                case "artist":
+                    this.artist = this_value;
+                    break;
+                case "artist_id":
+                    this.artist_id = this_value;
+                    break;
+                case "illustration_id":
+                    this.illustration_id = this_value;
+                    break;
+                case "small":
+                    this.small = this_value;
+                    break;
+                case "normal":
+                    this.normal = this_value;
+                    break;
+                case "large":
+                    this.large = this_value;
+                    break;
+                case "png":
+                    this.png = this_value;
+                    break;
+                case "art_crop":
+                    this.art_crop = this_value;
+                    break;
+                case "border_crop":
+                    this.border_crop = this_value;
+                    break;
+                default:
+                    break;
+            }
+            return;
+        }
     }
 }

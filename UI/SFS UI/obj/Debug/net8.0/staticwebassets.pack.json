@@ -5,6 +5,26 @@
       "PackagePath": "staticwebassets\\SFS UI.4rs4zl5vlm.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\Images\\Symbols\\all_symbols.png",
+      "PackagePath": "staticwebassets\\Images\\Symbols\\all_symbols.png"
+    },
+    {
+      "Id": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\Images\\Symbols\\red_mana.png",
+      "PackagePath": "staticwebassets\\Images\\Symbols\\red_mana.png"
+    },
+    {
+      "Id": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\Images\\Symbols\\white_mana.png",
+      "PackagePath": "staticwebassets\\Images\\Symbols\\white_mana.png"
+    },
+    {
+      "Id": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\Images\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\Images\\ajax-loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\Images\\filler.png",
+      "PackagePath": "staticwebassets\\Images\\filler.png"
+    },
+    {
       "Id": "C:\\Users\\bsorensen\\Desktop\\Just for Fun\\SFScrape\\UI\\SFS UI\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

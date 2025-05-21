@@ -1,22 +1,275 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+.detailLine {
+    font-size: 10pt;
+    padding: 0px 15px 0px 0px;
+    margin: 0px 15px 0px 0px;
+}
+
+.imgBlock {
+    overflow: hidden;
+    min-width: 15px;
+    max-width: 35px;
+    width: 35px;
+    min-height: 15px;
+    max-height: 15px;
+    height: 15px;
+    background-image: url('/Images/Symbols/all_symbols.png');
+    background-size: 900%;
+    display: inline;
+    padding: 0px 0px 0px 0px;
+    clip-path: circle(39% at center);
+    overflow: hidden;
+}
+    /*Basic Mana Symbols*/
+    .imgBlock.wMana {
+        background-position: -61px -28px;
+    }
+
+    .imgBlock.uMana {
+        background-position: -75px -28px;
+    }
+
+    .imgBlock.bMana {
+        background-position: -91px -28px;
+    }
+
+    .imgBlock.rMana {
+        background-position: -106px -28px;
+    }
+
+    .imgBlock.gMana {
+        background-position: -122px -28px;
+    }
+
+    .imgBlock.xMana {
+        background-position: -14px -28px;
+    }
+
+    .imgBlock.sMana {
+        background-position: -137px -28px;
+    }
+
+    /*Action Symbols*/
+    .imgBlock.tSymb {
+        background-position: 0px -74px;
+    }
+
+    .imgBlock.uSymb {
+        background-position: -15px -74px;
+    }
+    /*Hybrid Mana Symbols*/
+    .imgBlock.wuMana {
+        background-position: 0px -43px;
+    }
+
+    .imgBlock.wbMana {
+        background-position: -15px -43px;
+    }
+
+    .imgBlock.ubMana {
+        background-position: -30px -43px;
+    }
+
+    .imgBlock.urMana {
+        background-position: -45px -43px;
+    }
+
+    .imgBlock.brMana {
+        background-position: -60px -43px;
+    }
+
+    .imgBlock.bgMana {
+        background-position: -75px -43px;
+    }
+
+    .imgBlock.rwMana {
+        background-position: -90px -43px;
+    }
+
+    .imgBlock.rgMana {
+        background-position: -105px -43px;
+    }
+
+    .imgBlock.gwMana {
+        background-position: -120px -43px;
+    }
+
+    .imgBlock.guMana {
+        background-position: -135px -43px;
+    }
+    /*Special Hybrid Mana Symbols*/
+    .imgBlock.gupMana {
+        background-position: 0px -74px;
+    }
+
+    .imgBlock.gwpMana {
+        background-position: 0px -74px;
+    }
+
+    /*Phyrexian Symbols*/
+    .imgBlock.wpMana {
+        background-position: -75px -59px;
+    }
+
+    .imgBlock.upMana {
+        background-position: -90px -59px;
+    }
+
+    .imgBlock.bpMana {
+        background-position: -105px -59px;
+    }
+
+    .imgBlock.rpMana {
+        background-position: -120px -59px;
+    }
+
+    .imgBlock.gpMana {
+        background-position: -135px -59px;
+    }
+
+    /*Hybrid Colorless Symbols*/
+    /*1 Gen is Only for Ulalek*/
+    .imgBlock.c2wMana {
+        background-position: 0px -59px;
+    }
+    .imgBlock.c2uMana {
+        background-position: -15px -59px;
+    }
+    .imgBlock.c2bMana {
+        background-position: -30px -59px;
+    }
+    .imgBlock.c2rMana {
+        background-position: -45px -59px;
+    }
+    .imgBlock.c2gMana {
+        background-position: -60px -59px;
+    }
+
+    /*Generic Mana Symbols*/
+    .imgBlock.c0mana {
+        background-position: 1px 3px;
+    }
+
+    .imgBlock.c1mana {
+        background-position: -14px 3px;
+    }
+
+    .imgBlock.c2mana {
+        background-position: -30px 3px;
+    }
+
+    .imgBlock.c3mana {
+        background-position: -45px 3px;
+    }
+
+    .imgBlock.c4mana {
+        background-position: -61px 4px;
+    }
+
+    .imgBlock.c5mana {
+        background-position: -75px 4px;
+    }
+
+    .imgBlock.c6mana {
+        background-position: -91px 4px;
+    }
+
+    .imgBlock.c7mana {
+        background-position: -106px 3px;
+    }
+
+    .imgBlock.c8mana {
+        background-position: -122px 2px;
+    }
+
+    .imgBlock.c9mana {
+        background-position: -137px 3px;
+    }
+
+    .imgBlock.c10mana {
+        background-position: 1px -12px;
+    }
+
+    .imgBlock.c11mana {
+        background-position: -14px -12px;
+    }
+
+    .imgBlock.c12mana {
+        background-position: -30px -12px;
+    }
+
+    .imgBlock.c13mana {
+        background-position: -45px -12px;
+    }
+
+    .imgBlock.c14mana {
+        background-position: -61px -12px;
+    }
+
+    .imgBlock.c15mana {
+        background-position: -75px -12px;
+    }
+
+    .imgBlock.c16mana {
+        background-position: -91px -12px;
+    }
+
+    .imgBlock.c17mana {
+        background-position: -106px -12px;
+    }
+
+    .imgBlock.c18mana {
+        background-position: -122px -12px;
+    }
+
+    .imgBlock.c19mana {
+        background-position: -137px -12px;
+    }
+
+    .imgBlock.c20mana {
+        background-position: 1px -28px;
+    }
+
+
+
+.img-crop {
+    width: 250px;
+    height: 250px;
+    display: inline-block; /* To place them next to each other */
+    max-height: 15px;
+    max-width: 17px;
+}
+
+.cardSymbol {
+    margin-right: 2px;
+}
+
+.cardSymboltrim {
+    min-height: 15px;
+    max-height: 15px;
+    max-width: 15px;
+    overflow: hidden;
+    margin-right: 2px;
+}
+
+.flavorText {
+    font-style: italic;
 }
