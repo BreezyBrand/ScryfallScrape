@@ -55,6 +55,11 @@ else
             <div class="col-3 mtgCardMC">
                 @Html.Raw(helper.convertToHTML(Model.mana_cost))
             </div>
+            @if(!helper.ban_pictures){
+                <div class="col-3 mtgCardMC">
+                    @*Get Image*@
+                </div>
+            }
             <div class="col-9 mtgCardType">
                 <p>@Model.type_line</p>
             </div>
