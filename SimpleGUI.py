@@ -2,6 +2,7 @@ import flet as ft
 import json
 
 all_json_options = []
+filePathField = ft.Ref[ft.TextField]()
 
 class formatted_card:
     def __init__(self,card):        
@@ -392,11 +393,66 @@ class JsonVizApp(ft.Column):
                 ])
             ])
         ]
-        self.scroll = ft.ScrollMode.ADAPTIVE
-        self.height= 200
-        self.width=400
+        self.scroll =ft.ScrollMode.ADAPTIVE
+        self.expand = True
+        self.height = 450
+        self.width = 450
+
     def QueryJson(self,searchArray):
-        pass
+        print("Searching...")
+        self.controls = [
+            ft.Text("Search Results")
+        ]
+        self.update()
+        print(searchArray.__dict__)
+        fp = filePathField.current.value        
+
+        dataTable = ft.DataTable(
+                        height=450,
+                        columns=[
+                                ft.DataColumn(ft.Text("Name")),
+                                ft.DataColumn(ft.Text("Set")),
+                                ft.DataColumn(ft.Text("CN"))
+                            ]
+                        )
+                
+        self.controls.append(dataTable)
+        with open(fp,'r',encoding="utf8") as file:    
+            count = 0
+            for line in file:        
+                if(count%10000 == 0):
+                    print(str(int((count/107301)*1000)/10) + "% scanned")
+                    pass
+                try:
+                    all_but_one = str(line[:-2])
+                    card = json.loads(all_but_one)
+                    jblock = jsonBlock(card)
+                    keep = True
+                    for attr in searchArray.__dict__.keys():
+                        if hasattr(jblock,attr):
+                            if str(searchArray[attr]).upper() in str(jblock[attr]).upper():
+                                #print(f"Criteria ({searchArray[attr]}) found in source ({jblock[attr]})")
+                                pass
+                            else:
+                                keep=False
+                        else:
+                            keep=False
+                    if keep:
+                        #print("Meets all criteria!")                                                
+                        dataTable.rows.append(ft.DataRow(                            
+                                cells=[
+                                    ft.DataCell(ft.Text(jblock["name"])),
+                                    ft.DataCell(ft.Text(jblock["set"])),
+                                    ft.DataCell(ft.Text(jblock["collector_number"]))
+                                ]
+                        ))             
+
+                    count = count + 1    
+                except Exception as e:
+                    print(f"An error ({e}) occured parsing line in QueryJson")
+        print("100% scanned")
+        self.update()            
+        
 
     def findCard(self, set: str, cn: str):
         print("Searching...")
@@ -443,25 +499,17 @@ class JsonVizApp(ft.Column):
                 except Exception as e:            
                     print(f"An error ({e}) occured parsing line {str(count)}")            
                 count = count + 1
+        file2.close()
         self.update()                     
         return                            
 
-class JsonVizParser(ft.Column):              
+class JsonVizParser(ft.Column):         
     def __init__(self,jviz: JsonVizApp):
         super().__init__()
         self.scroll = ft.ScrollMode.ADAPTIVE
-        self.height= 800
-        self.width=500          
-        self.FileLookup = ft.TextField(value = "cards.txt", text_align=ft.TextAlign.RIGHT,width=300)                     
-        self.QueryButton = ft.IconButton(
-                    icon=ft.Icons.CHECK_CIRCLE,
-                    icon_color=ft.Colors.GREEN_300,
-                    icon_size=25,
-                    tooltip="Query JSON file",
-                    #on_click=lambda e: jviz.findCard(jviz.set_number.value,jviz.txt_number.value),
-                    on_click= lambda e: self.buildSearchQuery(jviz),
-                    alignment=ft.alignment.center,                    
-                )   
+        self.height = 500
+        self.width = 500          
+        self.FileLookup = ft.TextField(value = "cards.txt", text_align=ft.TextAlign.RIGHT,width=300,ref=filePathField)                                
 
         self.controls = [
             ft.Column([
@@ -475,7 +523,7 @@ class JsonVizParser(ft.Column):
                         icon_color=ft.Colors.GREEN_300,
                         icon_size=25,
                         tooltip="Load JSON Keys",
-                        on_click= lambda e: self.getSearchKeys(self.FileLookup.value),
+                        on_click= lambda e: self.getSearchKeys(self.FileLookup.value,jviz),
                         alignment=ft.alignment.center,                
                     )
                 ])
@@ -483,53 +531,65 @@ class JsonVizParser(ft.Column):
         ]
     
     def buildSearchQuery(self, jviz):
-        searchQ = jsonBlock({})        
-        
-        for col in all_json_options:
-            colVal = ft.TextField(ref=col).value
-            searchQ.__setattr__(col,colVal)
-            
+        searchQ = jsonBlock({})                        
+        for row in self.controls[1].controls:
+            if row.controls[1].value:
+                col = row.controls[0].label
+                colVal = row.controls[0].value
+                searchQ.__setattr__(col,colVal)            
+                
         jviz.QueryJson(searchQ)
 
-    def getSearchKeys(self,fileValue):
+    def getSearchKeys(self,fileValue,jviz):
         try:                        
+            QueryButton = ft.IconButton(
+                    icon=ft.Icons.CHECK_CIRCLE,
+                    icon_color=ft.Colors.GREEN_300,
+                    icon_size=25,
+                    tooltip="Query JSON file",
+                    #on_click=lambda e: jviz.findCard(jviz.set_number.value,jviz.txt_number.value),
+                    on_click= lambda e: self.buildSearchQuery(jviz),
+                    alignment=ft.alignment.center,                    
+                )
+            header = ft.Row(
+                controls=[
+                    ft.Text("Search Criteria"),
+                    QueryButton
+                ]                
+            )
+            
             block = populate_all_options(fileValue)            
             if(block.Count() > 0):
                 self.controls = []
                 newCol = ft.Column(
-                    controls=[]
+                    scroll=ft.ScrollMode.ADAPTIVE,
+                    height=400,
+                    expand=True
                 )
+
                 for attr in block.__dict__:
+                    varthis = block[attr]
                     try:                        
-                        varthis = block[attr]
-                        colRow = ft.Row(visible=False)
-                        colLabel = ft.Text(f"{varthis}",width=175)
-                        colRow.controls.append(colLabel)
-                        colfeild = ft.TextField(text_align=ft.TextAlign.RIGHT, width=225)
-                        colRow.controls.append(colfeild)
-                        colCheck = ft.Checkbox(label=f"Include {varthis} on display?", on_change= lambda e: self.toggleRow(colRow))
-                        #colRow.controls.append(colCheck)
-                        newCol.controls.append(colRow)                        
-                        newCol.controls.append(colCheck)                        
+                        attrField = ft.TextField(text_align=ft.TextAlign.RIGHT, width=225, label=f"{varthis}", visible=False)                        
+                        attrCheck = ft.Switch(label=f"Include {varthis} in search?", value=False, data=varthis, on_change=self.toggleRow)
+                        attrRow = ft.Row([attrField, attrCheck])
+                        newCol.controls.append(attrRow)                        
                     except Exception as e:
                         print(f"Error in JsonVizParser.getSearchKeys for {block[attr]}: {e}")
-                self.controls.append(newCol)
-            self.update()
+                self.controls.append(header)
+                self.controls.append(newCol)                                    
+                self.update()
         except Exception as e:
             print(f"Error in JsonVizParser.getSearchKeys: {e}")
             pass
 
-    def toggleRow(self,row):              
+    def toggleRow(self,e):                      
         try:
-            if(row.visible):
-                print("Changing row visibility to false")
-                row.visible = False
-            else:
-                print("Changing row visibility to true")
-                row.visible = True        
-            row.update()
-            self.page.update()
-            self.update()        
+            for control in self.controls[1].controls:
+                vis = control.controls[1].value
+                control.controls[0].visible = vis
+            self.update()
+
         except Exception as e:
             print(f"Cannot toggle row: {e}")
         
@@ -556,6 +616,7 @@ def populate_all_options(fileValue:str):
             except Exception as e:
                 print(e)
         print("100% Complete")
+    file.close()
     return newBlock
 
 def processCard(card):    
@@ -607,8 +668,8 @@ def main(page: ft.Page):
     #                 ],alignment=ft.MainAxisAlignment.CENTER
     #                 ))    
     # add application's root control to the page
-    page.add(jParser)
-    page.add(jviz)
+    displayRow = ft.Row([jParser,jviz])
+    page.add(displayRow)
     page.update()
 
 ft.app(main)
