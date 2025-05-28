@@ -638,36 +638,9 @@ def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER    
     jviz = JsonVizApp()
     jParser = JsonVizParser(jviz)
-    #Create Inputs
-    set_number = ft.TextField(value="rex",text_align=ft.TextAlign.RIGHT, width=100)
-    txt_number = ft.TextField(value="1", text_align=ft.TextAlign.RIGHT, width=100)        
-
-    #Create Buttons
-    # searchbutton = ft.IconButton(
-    #                 icon=ft.Icons.CHECK_CIRCLE,
-    #                 icon_color=ft.Colors.GREEN_300,
-    #                 icon_size=25,
-    #                 tooltip="Yep",
-    #                 on_click= jviz.findCard(set_number.value,txt_number.value),
-    #                 alignment=ft.alignment.center
-    #             )     
-
-    # create application instance
-    # page.add(ft.Row([ft.Column(
-    #                     [                   
-    #                         ft.Row([ft.Text("Set",width=100),set_number]),                
-    #                         ft.Row([ft.Text("Collector Number",width=100),txt_number]),
-    #                         ft.Row([ft.Text("Search",width=100),searchbutton]),
-    #                         # ft.IconButton(ft.Icons.REMOVE, on_click=minus_click),                                
-    #                         # ft.IconButton(ft.Icons.ADD, on_click=plus_click),                
-    #                     ],
-    #                     alignment=ft.MainAxisAlignment.CENTER,
-    #                     width=400
-    #                 ),
-    #                 jviz
-    #                 ],alignment=ft.MainAxisAlignment.CENTER
-    #                 ))    
-    # add application's root control to the page
+    
+    
+    
     displayRow = ft.Row([jParser,jviz])
     page.add(displayRow)
     page.update()
