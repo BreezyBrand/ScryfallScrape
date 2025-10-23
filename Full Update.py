@@ -436,12 +436,7 @@ if username and password:
 # Connect to the database
 try:
     conn = pyodbc.connect(connection_string)
-    cursor = conn.cursor()
-    if skip == 0:
-        clear_price_query = "DELETE FROM PriceHistory WHERE Age='Old'"
-        cursor.execute(clear_price_query)
-        shift_price_query = "UPDATE PriceHistory SET Age='Old'"
-        cursor.execute(shift_price_query)
+    cursor = conn.cursor()    
     print("Connection successful!")    
 except Exception as e:
     print(f"Error: {e}")
@@ -596,12 +591,8 @@ def saveCardAttempt(card):
             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'N');
             """
             # Execute the insert query
-            cursor.execute(insert_query, data)
+            cursor.execute(insert_query, data)        
         
-        cardp = getPricing(card.prices)                
-        pricingQuery = """INSERT INTO PriceHistory ([CardId],[Age],[usd],[usd_foil],[usd_etched],[eur],[eur_foil],[eur_etched],[tix],[Update_Date]) VALUES (?,?,?,?,?,?,?,?,?,GETDATE())"""        
-        pricingData = (card.id,'New',cardp.usd,cardp.usd_foil,cardp.usd_etched,cardp.eur,cardp.eur_foil,cardp.eur_etched,cardp.tix)
-        cursor.execute(pricingQuery, pricingData)
 
         # Commit the changes
         conn.commit()
@@ -611,7 +602,7 @@ def saveCardAttempt(card):
     except Exception as e:
         print(f"Ln 530 Error: {e}")
         
-with open('cards.txt','r',encoding="utf8") as file2:    
+with open('all-cards.json','r',encoding="utf8") as file2:    
     for line in file2:        
         if(count%100 == 0):
             print(count)
